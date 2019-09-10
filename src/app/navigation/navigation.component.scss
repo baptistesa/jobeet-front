@@ -1,0 +1,91 @@
+.sidenav-container {
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.mat-sidenav-content {
+  height: 100vh !important;
+}
+
+.sidenav {
+  width: 250px;
+  background-color: white;
+}
+
+.sidenav .mat-toolbar,
+.mat-toolbar.mat-primary {
+  background: white;
+}
+
+.mat-drawer-side {
+  border: none !important;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.mat-toolbar-row,
+.mat-toolbar-single-row {
+  align-items: unset !important;
+}
+
+.picture {
+  height: 3rem;
+  width: 3rem;
+  background-position: center;
+  background-size: cover;
+  background-color: black;
+  border-radius: 50%;
+  margin-top: 2rem;
+}
+
+img {
+  margin-left: auto;
+  margin-right: auto;
+  height: 2rem;
+}
+
+h3 {
+  margin-left: 8%;
+  font-family: "Avenir Next";
+  font-size: 1.2rem;
+  margin-top: 2rem;
+}
+
+.mat-icon {
+  margin-right: 5%;
+  color: black;
+}
+
+a {
+  font-family: "locator-regular";
+}
+
+.name {
+  font-size: 15px;
+  font-family: "locator-regular";
+  margin-top: 4.5vh;
+  color: black;
+  margin-left: 5%;
+  margin-bottom: 0;
+}
+
+.status {
+  font-family: "locator-regular";
+  font-size: 14px;
+  color: #41a1db;
+  margin-left: 5%;
+  margin-top: -1.5vh;
+}
+
+@media screen and (min-width: 0px) and (max-width: 640px) {
+  .sidenav {
+    display: none;
+  }
+}

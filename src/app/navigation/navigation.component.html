@@ -1,0 +1,35 @@
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #drawer class="sidenav" fixedInViewport="true" [mode]="'side'" [opened]="true">
+        <mat-toolbar style="height: 8rem;">
+            <mat-toolbar-row style="height: 8rem;">
+                <div class="picture">
+
+                </div>
+                <div>
+                    <p class="name">Baptiste Saint-André</p>
+                </div>
+            </mat-toolbar-row>
+        </mat-toolbar>
+        <mat-nav-list>
+            <a mat-list-item routerLink="/" [routerLinkActive]="['is-active']">
+                <mat-icon>home</mat-icon>Feed
+            </a>
+            <a mat-list-item routerLink="/absences">
+                <mat-icon>date_range</mat-icon>Test
+            </a>
+            <a mat-list-item routerLink="/qcm">
+                <mat-icon>assignment</mat-icon>Messagerie
+            </a>
+            <a mat-list-item routerLink="#">
+                <mat-icon>forum</mat-icon>Mon profil
+            </a>
+            <a mat-list-item routerLink="#">
+                <mat-icon>arrow_forward_ios</mat-icon>Se déconnecter
+            </a>
+        </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>
