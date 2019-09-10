@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HomeService } from './provider/home.service';
+import { HomeService } from './service/home.service';
 
 @Component({
   selector: 'app-home',
@@ -8,9 +8,10 @@ import { HomeService } from './provider/home.service';
 })
 export class HomeComponent implements OnInit {
 
-  users : any;
+  users;
+  baptiste;
 
-  constructor(private http: HomeService) {
+  constructor(private homeService: HomeService) {
     this.getUsers();
   }
 
@@ -18,7 +19,7 @@ export class HomeComponent implements OnInit {
   }
 
   getUsers() {
-    this.http.getAllUsers()
+    this.homeService.getAllUsers()
       .subscribe(data => {
         this.users = JSON.parse(JSON.stringify(data)).data;
       }, err => {
