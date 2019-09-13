@@ -17,6 +17,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material';
+import { ProfilComponent } from './profil/profil.component';
 
 
 
@@ -26,7 +27,8 @@ import {MatInputModule} from '@angular/material';
     AppComponent,
     NavigationComponent,
     HomeComponent,
-    LoginComponent
+    LoginComponent,
+    ProfilComponent
   ],
   imports: [
     BrowserModule,

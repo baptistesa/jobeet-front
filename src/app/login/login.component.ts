@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
 
   displaySpinner = false;
 
-  usernameFormControl = new FormControl('', [
+  mailFormControl = new FormControl('', [
     Validators.required
   ]);
 
@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
   connect() {
     this.displaySpinner = true;
     let body = {
-      mail : this.usernameFormControl.value,
+      mail : this.mailFormControl.value,
       password : this.passwordFormControl.value
     }
     this.auth.login(body)

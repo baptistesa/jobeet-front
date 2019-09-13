@@ -14,18 +14,18 @@
             <p class="subtitle"></p>
 
             <div class="inputs">
-                <mat-form-field class="example-full-width">
-                    <input matInput placeholder="Username" [formControl]="usernameFormControl"
+                <mat-form-field>
+                    <input matInput placeholder="Adresse mail" [formControl]="mailFormControl"
                         [errorStateMatcher]="matcher">
 
-                    <mat-error *ngIf="usernameFormControl.hasError('required')">
-                        Nom d'utilisateur <strong>requis</strong>
+                    <mat-error *ngIf="mailFormControl.hasError('required')">
+                        Adresse mail <strong>requise</strong>
                     </mat-error>
 
 
                 </mat-form-field>
 
-                <mat-form-field class="example-full-width">
+                <mat-form-field>
                     <input matInput placeholder="Mot de passe" [formControl]="passwordFormControl"
                         [errorStateMatcher]="matcher" type="password">
 
