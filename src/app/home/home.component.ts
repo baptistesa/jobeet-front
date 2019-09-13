@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HomeService } from './service/home.service';
+import { NavbarService } from '../navigation/service/navbar.service';
 
 @Component({
   selector: 'app-home',
@@ -11,11 +12,12 @@ export class HomeComponent implements OnInit {
   users;
   baptiste;
 
-  constructor(private homeService: HomeService) {
+  constructor(private homeService: HomeService, private nav: NavbarService) {
     this.getUsers();
   }
 
   ngOnInit() {
+    this.nav.show();
   }
 
   getUsers() {

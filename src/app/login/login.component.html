@@ -1,0 +1,46 @@
+<div class="container">
+
+    <div>
+
+
+        <div class="news">
+
+            <div class="logo_container">
+                <img class="logo" src="assets/logo.png">
+            </div>
+            <h1 class="title">
+                Forum MOA
+            </h1>
+            <p class="subtitle"></p>
+
+            <div class="inputs">
+                <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Username" [formControl]="usernameFormControl"
+                        [errorStateMatcher]="matcher">
+
+                    <mat-error *ngIf="usernameFormControl.hasError('required')">
+                        Nom d'utilisateur <strong>requis</strong>
+                    </mat-error>
+
+
+                </mat-form-field>
+
+                <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Mot de passe" [formControl]="passwordFormControl"
+                        [errorStateMatcher]="matcher" type="password">
+
+                    <mat-error *ngIf="passwordFormControl.hasError('required')">
+                        Mot de passe <strong>requis</strong>
+                    </mat-error>
+
+
+                </mat-form-field>
+
+                <button mat-button class="connect_button" (click)="connect()">Connexion</button>
+                <mat-spinner class="spinner" *ngIf="displaySpinner"></mat-spinner>
+            </div>
+
+        </div>
+    </div>
+
+</div>

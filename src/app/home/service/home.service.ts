@@ -7,11 +7,16 @@ import { HttpClient, HttpParams, HttpHeaders } from "@angular/common/http";
 })
 export class HomeService {
 
-  private baseUrl = 'http://localhost:3000/';
+  private baseUrl = 'http://localhost:3000/users/';
 
   constructor(private http: HttpClient) { }
 
   getAllUsers() {
-    return this.http.get(this.baseUrl + "getusers");
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': localStorage.getItem("token")
+      })
+    };
+    return this.http.get(this.baseUrl + "getusers", httpOptions);
   }
 }
