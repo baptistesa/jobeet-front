@@ -44,6 +44,7 @@ export class LoginComponent implements OnInit {
       .subscribe(data => {
         this.displaySpinner = false;
         localStorage.setItem("token", JSON.parse(JSON.stringify(data)).token);
+        localStorage.setItem("user", JSON.stringify(JSON.parse(JSON.stringify(data)).data));
         this.router.navigate(["/"]);
       }, err => {
         this.snackBar.open("Identifiants incorrects", "Ok", {

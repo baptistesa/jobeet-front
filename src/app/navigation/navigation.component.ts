@@ -9,9 +9,12 @@ import { NavbarService } from './service/navbar.service';
 })
 export class NavigationComponent implements OnInit {
 
+  user;
+
   constructor(public nav: NavbarService) { }
 
   ngOnInit() {
+    this.user = JSON.parse(localStorage.getItem("user"));
   }
 
 }

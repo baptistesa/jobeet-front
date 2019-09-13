@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'jobeet';
+
+  constructor() {
+    // localStorage.removeItem("token")
+    // localStorage.removeItem("user")
+  }
 }
