@@ -17,3 +17,53 @@
   margin-top: 0;
   font-size: 16px;
 }
+
+.mat-tab-label {
+  font-family: 'locator-regular';
+}
+
+.mat-tab-label.mat-tab-label-active {
+  // color: #41a1db;
+}
+
+.infos {
+  background-color: white;
+  box-shadow: 0 4px 16px 0 rgba(50,56,63,0.08);
+  width: 100%;
+  height: 15rem;
+  border-radius: 8px;
+  margin-top: 3%;
+  padding: 3%;
+
+  h1 {
+    font-family: 'locator-regular';
+    font-size: 20px;
+  }
+
+  h2 {
+    font-family: 'locator-regular';
+    color: gray;
+    font-size: 15px;
+  }
+
+  p {
+    font-family: 'locator-regular';
+  }
+}
+
+.section_title {
+  margin-top: 5%;
+  font-family: 'locator-regular';
+  color: gray;
+  font-size: 20px;
+}
+
+.connect_button {
+  font-family: 'locator-regular';
+  background: #41a1db;
+  color: white;
+  margin-top: 5% !important;
+  width: 50%;
+  border-top-left-radius: 20px !important;
+  border-bottom-right-radius: 20px !important;
+}
