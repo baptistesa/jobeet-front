@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewEncapsulation, ChangeDetectionStrategy,ChangeDetectorRef, AfterViewInit } from '@angular/core';
 import { NavbarService } from './service/navbar.service';
+import { AuthService } from '../login/service/auth.service';
 
 @Component({
   selector: 'app-navigation',
@@ -12,14 +13,19 @@ export class NavigationComponent implements AfterViewInit {
   user;
   show_side = false;
 
-  constructor(public nav: NavbarService, private cdRef:ChangeDetectorRef) { }
+  constructor(public nav: NavbarService, private cdRef:ChangeDetectorRef, private auth: AuthService) { }
 
+  // Retrieve data to display in navbar
   ngAfterViewInit() {
     this.user = JSON.parse(localStorage.getItem("user"));
     this.nav.visible.subscribe(data => {
       console.log("visible = ", data)
       if (data && data == "true") {
         this.show_side = true;
+        this.cdRef.detectChanges();
+      }
+      else {
+        this.show_side = false;
         this.cdRef.detectChanges();
       }
     })
@@ -30,6 +36,12 @@ export class NavigationComponent implements AfterViewInit {
         this.cdRef.detectChanges();
       }
     })
+  }
+
+  // Logout function
+  logout() {
+    this.nav.hide();
+    this.auth.logout();
   }
 
 }

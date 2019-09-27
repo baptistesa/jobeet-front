@@ -60,6 +60,8 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.nav.hide();
+    if (localStorage.getItem("user"))
+      this.router.navigate(["/"]);
   }
 
   // Connexion
