@@ -1,17 +1,28 @@
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class NavbarService {
 
-  visible: boolean;
+  visible;
+  user;
 
-  constructor() { this.visible = false; }
+  constructor() {
+    this.visible = new Subject();
+    this.user = new Subject();
+  }
 
-  hide() { this.visible = false; }
+  hide() {
+    this.visible.next("false");
+  }
 
-  show() { this.visible = true; }
+  show() {
+    this.visible.next("true");
+  }
 
-  toggle() { this.visible = !this.visible; }
+  setUser(user) {
+    this.user.next(user);
+  }
 }

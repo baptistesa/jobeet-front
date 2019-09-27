@@ -1,44 +1,137 @@
-<div class="container">
+<div class="row">
 
-    <div class="row">
-
-        <div class="logo">
-            <h1>Jobeet.</h1>
-        </div>
-
-        <div class="news">
-
-            <h1 class="title">Connectez-vous</h1>
-            <p class="subtitle">Utilisez vos identifiants pour accéder à la plateforme Jobeet.</p>
-
-            <div class="inputs">
-                <mat-form-field>
-                    <input matInput placeholder="Adresse mail" [formControl]="mailFormControl"
-                        [errorStateMatcher]="matcher">
-
-                    <mat-error *ngIf="mailFormControl.hasError('required')">
-                        Adresse mail <strong>requise</strong>
-                    </mat-error>
-
-
-                </mat-form-field>
-
-                <mat-form-field>
-                    <input matInput placeholder="Mot de passe" [formControl]="passwordFormControl"
-                        [errorStateMatcher]="matcher" type="password">
-
-                    <mat-error *ngIf="passwordFormControl.hasError('required')">
-                        Mot de passe <strong>requis</strong>
-                    </mat-error>
-
-
-                </mat-form-field>
-
-                <button mat-button class="connect_button" (click)="connect()">Connexion</button>
-                <mat-spinner class="spinner" *ngIf="displaySpinner"></mat-spinner>
-            </div>
-
-        </div>
+    <div class="logo col-lg-6">
+        <img src="assets/imgs/onboarding.png" style="height: 15rem; margin-top: 18rem;" />
+        <h1>Jobeet.</h1>
     </div>
 
+    <div class="news col-lg-6" *ngIf="has_account">
+
+        <h1 class="title">Connectez-vous</h1>
+        <p class="subtitle">Utilisez vos identifiants pour accéder à la plateforme Jobeet.</p>
+
+        <div class="inputs">
+            <mat-form-field>
+                <input matInput [formControl]="mailFormControl" [errorStateMatcher]="matcher">
+
+                <mat-placeholder class="placeholder">Adresse mail</mat-placeholder>
+
+                <mat-error *ngIf="mailFormControl.hasError('required')">
+                    Adresse mail <strong>requise</strong>
+                </mat-error>
+
+
+            </mat-form-field>
+            <br>
+            <mat-form-field>
+                <input matInput [formControl]="passwordFormControl" [errorStateMatcher]="matcher" type="password">
+                <mat-placeholder class="placeholder">Mot de passe</mat-placeholder>
+
+                <mat-error *ngIf="passwordFormControl.hasError('required')">
+                    Mot de passe <strong>requis</strong>
+                </mat-error>
+
+
+            </mat-form-field>
+
+            <button mat-button class="connect_button" (click)="connect()">Connexion</button>
+            <mat-spinner class="spinner" *ngIf="displaySpinner"></mat-spinner>
+        </div>
+        <br>
+        <a style="margin-left: 7rem; margin-top: 3rem;" (click)="toggleConnection()"><u>Je n'ai pas de
+                compte</u></a>
+
+    </div>
+
+    <div class="news col-lg-6" *ngIf="!has_account" style="margin-top: calc(50vh - 22rem);">
+        <div *ngIf="!display_phone">
+            <h1 class="title">Inscrivez-vous</h1>
+            <p class="subtitle">Inscrivez-vous à la plateforme Jobeet.</p>
+
+            <div class="inputs">
+
+                <mat-form-field>
+                    <input matInput [formControl]="nameFormControl" [errorStateMatcher]="matcher" type="text">
+                    <mat-placeholder class="placeholder">Prénom</mat-placeholder>
+                    <mat-error *ngIf="nameFormControl.hasError('required')">
+                        Prénom <strong>requis</strong>
+                    </mat-error>
+                </mat-form-field>
+                <br>
+                <mat-form-field>
+                    <input matInput [formControl]="lastNameFormControl" [errorStateMatcher]="matcher" type="text">
+                    <mat-placeholder class="placeholder">Nom de famille</mat-placeholder>
+                    <mat-error *ngIf="lastNameFormControl.hasError('required')">
+                        Nom de famille <strong>requis</strong>
+                    </mat-error>
+                </mat-form-field>
+                <br>
+                <mat-form-field>
+                    <input matInput [formControl]="mailSignUpFormControl" [errorStateMatcher]="matcher">
+                    <mat-placeholder class="placeholder">Adresse mail</mat-placeholder>
+                    <mat-error *ngIf="mailSignUpFormControl.hasError('required')">
+                        Adresse mail <strong>requise</strong>
+                    </mat-error>
+                </mat-form-field>
+                <br>
+                <mat-form-field>
+                    <input matInput [formControl]="repeatMailSignUpFormControl" [errorStateMatcher]="matcher">
+                    <mat-placeholder class="placeholder">Retapez votre adresse mail</mat-placeholder>
+                    <mat-error *ngIf="repeatMailSignUpFormControl.hasError('required')">
+                        Adresse mail <strong>requise</strong>
+                    </mat-error>
+                </mat-form-field>
+                <br>
+                <mat-form-field>
+                    <input matInput [formControl]="phoneSignUpFormControl" [errorStateMatcher]="matcher">
+                    <mat-placeholder class="placeholder">Numéro de téléphone (format international : +33XXXXXXXXX)</mat-placeholder>
+                    <mat-error *ngIf="phoneSignUpFormControl.hasError('required')">
+                        Numéro de téléphone requis <strong>requise</strong>
+                    </mat-error>
+                </mat-form-field>
+                <br>
+                <mat-form-field>
+                    <input matInput [formControl]="passwordSignUpFormControl" [errorStateMatcher]="matcher"
+                        type="password">
+                    <mat-placeholder class="placeholder">Mot de passe</mat-placeholder>
+                    <mat-error *ngIf="passwordSignUpFormControl.hasError('required')">
+                        Mot de passe <strong>requis</strong>
+                    </mat-error>
+                </mat-form-field>
+                <br>
+                <mat-form-field>
+                    <input matInput [formControl]="repeatPasswordSignUpFormControl" [errorStateMatcher]="matcher"
+                        type="password">
+                    <mat-placeholder class="placeholder">Retapez votre mot de passe</mat-placeholder>
+                    <mat-error *ngIf="repeatPasswordSignUpFormControl.hasError('required')">
+                        Mot de passe <strong>requis</strong>
+                    </mat-error>
+                </mat-form-field>
+
+                <button mat-button class="connect_button" (click)="signUp()">S'inscrire</button>
+                <mat-spinner class="spinner" *ngIf="displaySpinner"></mat-spinner>
+            </div>
+            <br>
+            <a style="margin-left: 7rem; margin-top: 3rem;" (click)="toggleConnection()"><u>J'ai déjà un compte</u></a>
+        </div>
+
+        <div *ngIf="display_phone" style="margin-top: 13rem">
+            <h1 class="title">Validez votre inscription</h1>
+            <p class="subtitle">Entrez le code reçu par SMS</p>
+
+            <div class="inputs">
+
+                <mat-form-field>
+                    <input matInput [formControl]="codeFormControl" [errorStateMatcher]="matcher" type="text">
+                    <mat-placeholder class="placeholder">Code</mat-placeholder>
+                    <mat-error *ngIf="codeFormControl.hasError('required')">
+                        Code de confirmation <strong>requis</strong>
+                    </mat-error>
+                </mat-form-field>
+
+                <button mat-button class="connect_button" (click)="confirmCode()">Valider l'inscription</button>
+                <mat-spinner class="spinner" *ngIf="displaySpinner"></mat-spinner>
+            </div>
+        </div>
+    </div>
 </div>

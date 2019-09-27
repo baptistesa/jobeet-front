@@ -7,17 +7,25 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AuthService {
 
-  login_url = "http://localhost:3000/users/login";
+  base_url = "http://localhost:3000/users";
 
   constructor(
     private router: Router, private http: HttpClient
   ) { }
 
   login(body) {
-    return this.http.post(this.login_url, body);
+    return this.http.post(this.base_url + "/login", body);
+  }
+
+  signUp(body) {
+    return this.http.post(this.base_url + "/signup", body);
   }
 
   logout() {
     this.router.navigate(['/login']);
+  }
+
+  confirmCode(body) {
+    return this.http.post(this.base_url + "/confirm", body)
   }
 }

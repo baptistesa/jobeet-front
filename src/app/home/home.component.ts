@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit {
   baptiste;
 
   constructor(private homeService: HomeService, private nav: NavbarService) {
-    this.getUsers();
+    // this.getUsers();
   }
 
   ngOnInit() {

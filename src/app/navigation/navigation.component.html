@@ -1,5 +1,5 @@
 <mat-sidenav-container class="sidenav-container">
-    <mat-sidenav  *ngIf="nav.visible" #drawer class="sidenav" fixedInViewport="true" [mode]="'side'" [opened]="true">
+    <mat-sidenav  *ngIf="show_side" #drawer class="sidenav" fixedInViewport="true" [mode]="'side'" [opened]="true">
         <mat-toolbar style="height: 8rem;">
             <mat-toolbar-row style="height: 8rem;">
                 <div class="picture">
@@ -12,25 +12,28 @@
         </mat-toolbar>
         <mat-nav-list>
             <a mat-list-item routerLink="/" [routerLinkActive]="['is-active']" style="font-family: 'locator-regular'">
-                <mat-icon style="color: #41a1db">home</mat-icon>Dashboard
+                <mat-icon style="color: #e50051">home</mat-icon>Dashboard
             </a>
             <a mat-list-item routerLink="#" style="font-family: 'locator-regular'">
-                <mat-icon style="color: #41a1db">date_range</mat-icon>Offres d'emploi
+                <mat-icon style="color: #e50051">date_range</mat-icon>Offres d'emploi
             </a>
             <a mat-list-item routerLink="#" style="font-family: 'locator-regular'">
-                <mat-icon style="color: #41a1db">apartment</mat-icon>Entreprises
+                <mat-icon style="color: #e50051">apartment</mat-icon>Entreprises
             </a>
             <a mat-list-item routerLink="#" style="font-family: 'locator-regular'">
-                <mat-icon style="color: #41a1db">forum</mat-icon>Messagerie
+                <mat-icon style="color: #e50051">forum</mat-icon>Messagerie
             </a>
             <a mat-list-item routerLink="#" style="font-family: 'locator-regular'">
-                <mat-icon style="color: #41a1db">favorite</mat-icon>Mes matchs
+                <mat-icon style="color: #e50051">favorite</mat-icon>Mes matchs
             </a>
             <a mat-list-item routerLink="/profil" style="font-family: 'locator-regular'">
-                <mat-icon style="color: #41a1db">person_pin</mat-icon>Mon profil
+                <mat-icon style="color: #e50051">person_pin</mat-icon>Mon profil
+            </a>
+            <a mat-list-item routerLink="/profil" style="font-family: 'locator-regular'">
+                <mat-icon style="color: #e50051">memory</mat-icon>Administration
             </a>
             <a mat-list-item routerLink="#" style="position: absolute; bottom: 0; font-family: 'locator-regular'">
-                <mat-icon style="color: #41a1db">arrow_forward_ios</mat-icon>Se déconnecter
+                <mat-icon style="color: #e50051">arrow_forward_ios</mat-icon>Se déconnecter
             </a>
         </mat-nav-list>
     </mat-sidenav>

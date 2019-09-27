@@ -9,10 +9,17 @@ import { NavbarService } from '../navigation/service/navbar.service';
 })
 export class ProfilComponent implements OnInit {
 
+  display_form = false;
+
   constructor(private nav: NavbarService) { }
 
   ngOnInit() {
     this.nav.show();
+  }
+
+  // Ajouter une expérience
+  addExperience() {
+    this.display_form = true;
   }
 
 }
