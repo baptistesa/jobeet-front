@@ -7,8 +7,6 @@ import { HttpClient, HttpParams, HttpHeaders } from "@angular/common/http";
 import { AuthService } from './service/auth.service';
 import { NavbarService } from '../navigation/service/navbar.service';
 
-
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -106,7 +104,6 @@ export class LoginComponent implements OnInit {
       .subscribe(data => {
         this.displaySpinner = false;
         this.display_phone = true;
-        console.log("data = ", data)
         localStorage.setItem("token", JSON.parse(JSON.stringify(data)).token);
         localStorage.setItem("user", JSON.stringify(JSON.parse(JSON.stringify(data)).data));
       }, err => {

@@ -2,7 +2,7 @@
     <mat-sidenav  *ngIf="show_side" #drawer class="sidenav" fixedInViewport="true" [mode]="'side'" [opened]="true">
         <mat-toolbar style="height: 8rem;">
             <mat-toolbar-row style="height: 8rem;">
-                <div class="picture">
+                <div class="picture" [style.background-image]="getBackground(user.picture_path)">
 
                 </div>
                 <div>

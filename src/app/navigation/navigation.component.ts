@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewEncapsulation, ChangeDetectionStrategy,ChangeDetectorRef, AfterViewInit } from '@angular/core';
 import { NavbarService } from './service/navbar.service';
 import { AuthService } from '../login/service/auth.service';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-navigation',
@@ -13,7 +14,7 @@ export class NavigationComponent implements AfterViewInit {
   user;
   show_side = false;
 
-  constructor(public nav: NavbarService, private cdRef:ChangeDetectorRef, private auth: AuthService) { }
+  constructor(public nav: NavbarService, private cdRef:ChangeDetectorRef, private auth: AuthService, private _sanitizer : DomSanitizer) { }
 
   // Retrieve data to display in navbar
   ngAfterViewInit() {
@@ -43,6 +44,12 @@ export class NavigationComponent implements AfterViewInit {
   logout() {
     this.nav.hide();
     this.auth.logout();
+  }
+
+  // Get sanitized picture
+  getBackground(image) {
+    let safe_pic = "http://localhost:3000/pictures/" + image
+    return this._sanitizer.bypassSecurityTrustStyle(`url(${safe_pic})`);
   }
 
 }
