@@ -33,6 +33,7 @@ export class NavigationComponent implements AfterViewInit {
       if (user) {
         console.log("user = ", user)
         this.user = user;
+        console.log(user.role)
         this.cdRef.detectChanges();
       }
     })

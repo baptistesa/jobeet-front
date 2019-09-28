@@ -13,17 +13,27 @@
                     <div>
                         <h1 class="section_title">Mes informations</h1>
                         <div class="row">
-                            <div class="infos col-lg-5" style="margin-left: 3%;height: 10rem">
+                            <div class="infos col-lg-4" style="margin-left: 3%;height: 20rem">
 
                             </div>
-                            <div class="infos col-lg-6" style="margin-left: 3%; height: 10rem;">
-
+                            <div class="infos col-lg-7" style="margin-left: 3%; height: 20rem;">
+                                <p class="title_entry">Prénom</p>
+                                <p class="subtitle_entry">{{ user.name }}</p>
+                                <hr>
+                                <p class="title_entry">Nom</p>
+                                <p class="subtitle_entry">{{ user.last_name }}</p>
+                                <hr>
+                                <p class="title_entry">Adresse email</p>
+                                <p class="subtitle_entry">{{ user.mail }}</p>
+                                <hr>
+                                <p class="title_entry">Numéro de téléphone</p>
+                                <p class="subtitle_entry">{{ user.phone }}</p>
                             </div>
                         </div>
                     </div>
 
                     <div>
-                        <h1 class="section_title">Ma description</h1>
+                        <h1 class="section_title">A propos de moi</h1>
                         <div class="infos col-lg-12">
                             <p style="margin-top: 3%">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
                                 consequat,

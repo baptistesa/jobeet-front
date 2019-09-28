@@ -29,7 +29,7 @@
             <a mat-list-item routerLink="/profil" style="font-family: 'locator-regular'">
                 <mat-icon style="color: #e50051">person_pin</mat-icon>Mon profil
             </a>
-            <a mat-list-item routerLink="/profil" style="font-family: 'locator-regular'">
+            <a mat-list-item routerLink="/profil" style="font-family: 'locator-regular'" *ngIf="user.role != 0">
                 <mat-icon style="color: #e50051">memory</mat-icon>Administration
             </a>
             <a mat-list-item routerLink="#" style="position: absolute; bottom: 0; font-family: 'locator-regular'" (click)="logout()">

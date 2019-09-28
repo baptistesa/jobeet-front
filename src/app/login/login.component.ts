@@ -106,6 +106,9 @@ export class LoginComponent implements OnInit {
       .subscribe(data => {
         this.displaySpinner = false;
         this.display_phone = true;
+        console.log("data = ", data)
+        localStorage.setItem("token", JSON.parse(JSON.stringify(data)).token);
+        localStorage.setItem("user", JSON.stringify(JSON.parse(JSON.stringify(data)).data));
       }, err => {
         this.snackBar.open("Une erreur s'est produite = " + err, "Ok", {
           duration: 2000,
@@ -127,7 +130,6 @@ export class LoginComponent implements OnInit {
     }
     this.auth.confirmCode(body)
       .subscribe(data => {
-        localStorage.setItem("token", JSON.parse(JSON.stringify(data)).token);
         localStorage.setItem("user", JSON.stringify(JSON.parse(JSON.stringify(data)).data));
         this.nav.setUser(JSON.parse(JSON.stringify(data)).data);
         this.router.navigate(["/"]);

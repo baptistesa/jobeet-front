@@ -10,8 +10,11 @@ import { NavbarService } from '../navigation/service/navbar.service';
 export class ProfilComponent implements OnInit {
 
   display_form = false;
+  user : any;
 
-  constructor(private nav: NavbarService) { }
+  constructor(private nav: NavbarService) {
+    this.user = JSON.parse(localStorage.getItem("user"));
+  }
 
   ngOnInit() {
     this.nav.show();

@@ -84,9 +84,9 @@
                 <br>
                 <mat-form-field>
                     <input matInput [formControl]="phoneSignUpFormControl" [errorStateMatcher]="matcher">
-                    <mat-placeholder class="placeholder">Numéro de téléphone (format international : +33XXXXXXXXX)</mat-placeholder>
+                    <mat-placeholder class="placeholder">Numéro de téléphone (+33XXXXXXXXX)</mat-placeholder>
                     <mat-error *ngIf="phoneSignUpFormControl.hasError('required')">
-                        Numéro de téléphone requis <strong>requise</strong>
+                        Numéro de téléphone <strong>requis</strong>
                     </mat-error>
                 </mat-form-field>
                 <br>
@@ -117,7 +117,7 @@
 
         <div *ngIf="display_phone" style="margin-top: 13rem">
             <h1 class="title">Validez votre inscription</h1>
-            <p class="subtitle">Entrez le code reçu par SMS</p>
+            <p class="subtitle">Entrez le code reçu par SMS au numéro de téléphone indiqué</p>
 
             <div class="inputs">
 
