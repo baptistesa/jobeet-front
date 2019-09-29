@@ -14,10 +14,10 @@
                         <h1 class="section_title">Mes informations</h1>
                         <div class="row">
                             <div class="infos col-lg-4"
-                                style="margin-left: 3%;height: 20rem; background-size: cover; background-position: center" [style.background-image]="getBackground(user.picture_path)">
+                                style="margin-left: 3%;height: 21rem; background-size: cover; background-position: center" [style.background-image]="getBackground(user.picture_path)">
 
                             </div>
-                            <div class="infos col-lg-7" style="margin-left: 3%; height: 20rem;">
+                            <div class="infos col-lg-7" style="margin-left: 3%; height: 21rem;">
                                 <p class="title_entry">Prénom</p>
                                 <p class="subtitle_entry">{{ user.name }}</p>
                                 <hr>
@@ -47,6 +47,12 @@
                                 dictum.
                                 Duis suscipit dolor vel nisl tristique placerat.</p>
                         </div>
+                    </div>
+
+                    <div>
+
+                        <h1 class="section_title">Mes compétences</h1>
+
                     </div>
                 </div>
 
@@ -117,7 +123,7 @@
 
                     <div>
 
-                        <h1 class="section_title">Ma formation</h1>
+                        <h1 class="section_title">Mes formations</h1>
                         <div class="infos col-lg-12">
                             <h1>Master degree in Computer Science</h1>
                             <h2>EPITA</h2>
@@ -137,12 +143,6 @@
                             <button mat-button class="connect_button" (click)="connect()">+ Ajouter une
                                 formation</button>
                         </div>
-                    </div>
-
-                    <div>
-
-                        <h1 class="section_title">Mes compétences</h1>
-
                     </div>
                 </div>
 
