@@ -1,0 +1,43 @@
+<div class="main_container">
+    <h1 class="title">
+        Profil entreprise
+    </h1>
+    <p class="subtitle">Consulter les informations d'une entreprise</p>
+
+    <mat-tab-group style="margin-top: 3%;">
+        <mat-tab label="Description">
+
+            <div class="row">
+
+                <div class="col-lg-6">
+                    <div>
+                        <h1 class="section_title">Informations de l'entreprise</h1>
+                        <div class="row">
+                            <div class="infos col-lg-4"
+                                style="margin-left: 3%;height: 21rem; background-size: cover; background-position: center" [style.background-image]="getBackground('https://upload.wikimedia.org/wikipedia/fr/d/d8/Epita.png')">
+
+                            </div>
+                            <div class="infos col-lg-7" style="margin-left: 3%; height: 21rem;">
+                                <p class="title_entry">Nom</p>
+                                <!--<p class="subtitle_entry">{{ entreprise.name }}</p>-->
+                                <p class="subtitle_entry">EPITA</p>
+                                <hr>
+                                <p class="title_entry">Description</p>
+                                <!--<p class="subtitle_entry">{{ entreprise.description }}</p>-->
+                                <p class="subtitle_entry">Ecole Pour Informatique et les Techniques Avancées</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </mat-tab>
+        <mat-tab label="Nos offres">
+            <h1 class="section_title">Offres disponibles</h1>
+            <p>Pas d'offre disponible actuellement</p>
+        </mat-tab>
+    </mat-tab-group>
+</div>
