@@ -1,0 +1,149 @@
+<div class="main_container">
+    <h1 class="title">
+        Offres
+    </h1>
+    <p class="subtitle">Découvrir les offres d'emploi disponibles</p>
+
+    <mat-tab-group style="margin-top: 3%;">
+        <mat-tab label="Mon CV">
+
+            <div class="row">
+
+                <div class="col-lg-6">
+                    <div>
+                        <h1 class="section_title">Mes informations</h1>
+                        <div class="row">
+                            <div class="infos col-lg-4"
+                                style="margin-left: 3%;height: 21rem; background-size: cover; background-position: center" [style.background-image]="getBackground(user.picture_path)">
+
+                            </div>
+                            <div class="infos col-lg-7" style="margin-left: 3%; height: 21rem;">
+                                <p class="title_entry">Prénom</p>
+                                <p class="subtitle_entry">{{ user.name }}</p>
+                                <hr>
+                                <p class="title_entry">Nom</p>
+                                <p class="subtitle_entry">{{ user.last_name }}</p>
+                                <hr>
+                                <p class="title_entry">Adresse email</p>
+                                <p class="subtitle_entry">{{ user.mail }}</p>
+                                <hr>
+                                <p class="title_entry">Numéro de téléphone</p>
+                                <p class="subtitle_entry">{{ user.phone }}</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h1 class="section_title">A propos de moi</h1>
+                        <div class="infos col-lg-12">
+                            <p style="margin-top: 3%">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
+                                consequat,
+                                nisi dignissim viverra
+                                gravida, nunc nulla tincidunt velit, rhoncus dignissim nisi erat ut arcu. Etiam vel ante
+                                nec
+                                eros hendrerit egestas. Nunc vel neque nulla. Sed porttitor suscipit hendrerit. Nam sit
+                                amet
+                                auctor nulla. Cras malesuada quam nec consectetur luctus. Duis rhoncus diam in dignissim
+                                dictum.
+                                Duis suscipit dolor vel nisl tristique placerat.</p>
+                        </div>
+                    </div>
+
+                    <div>
+
+                        <h1 class="section_title">Mes compétences</h1>
+
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+
+                    <div>
+
+                        <h1 class="section_title">Mes expériences professionnelles</h1>
+                        <div class="infos col-lg-12">
+                            <h1>Software engineer</h1>
+                            <h2>Informatique company</h2>
+                            <p style="margin-top: 3%">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
+                                consequat,
+                                nisi dignissim viverra
+                                gravida, nunc nulla tincidunt velit, rhoncus dignissim nisi erat ut arcu. Etiam vel ante
+                                nec
+                                eros hendrerit egestas. Nunc vel neque nulla. Sed porttitor suscipit hendrerit. Nam sit
+                                amet
+                                auctor nulla. Cras malesuada quam nec consectetur luctus. Duis rhoncus diam in dignissim
+                                dictum.
+                                Duis suscipit dolor vel nisl tristique placerat.</p>
+                            <hr>
+                            <h1>Developer</h1>
+                            <h2>Informatique company</h2>
+                            <p style="margin-top: 3%">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
+                                consequat,
+                                nisi dignissim viverra
+                                gravida, nunc nulla tincidunt velit, rhoncus dignissim nisi erat ut arcu. Etiam vel ante
+                                nec
+                                eros hendrerit egestas. Nunc vel neque nulla. Sed porttitor suscipit hendrerit. Nam sit
+                                amet
+                                auctor nulla. Cras malesuada quam nec consectetur luctus. Duis rhoncus diam in dignissim
+                                dictum.
+                                Duis suscipit dolor vel nisl tristique placerat.</p>
+
+
+
+                            <div [ngClass]="display_form ? 'add_exp_visible' : 'add_exp'">
+                                <hr>
+                                <div class="form">
+
+                                    <mat-form-field style="width: 20rem">
+                                        <input matInput>
+                                        <mat-placeholder class="placeholder">Fonction</mat-placeholder>
+                                    </mat-form-field>
+                                    <br>
+                                    <mat-form-field style="width: 20rem">
+                                        <input matInput>
+                                        <mat-placeholder class="placeholder">Nom de l'entreprise</mat-placeholder>
+                                    </mat-form-field>
+                                    <br>
+                                    <mat-form-field style="width: 30rem">
+                                        <textarea rows="10" colds="500" matInput></textarea>
+                                        <mat-placeholder class="placeholder">Description</mat-placeholder>
+                                    </mat-form-field>
+
+                                </div>
+                            </div>
+
+
+
+                        </div>
+                        <div style="text-align: center;">
+                            <button mat-button class="connect_button" (click)="addExperience()">+ Ajouter une
+                                expérience</button>
+                        </div>
+                    </div>
+
+                    <div>
+
+                        <h1 class="section_title">Mes formations</h1>
+                        <div class="infos col-lg-12" *ngFor="let formation of cv.formations">
+                            <h1>Master degree in Computer Science</h1>
+                            <h2>{{ formation.school }}</h2>
+                            <p style="margin-top: 3%">{{ formation.description }}</p>
+                        </div>
+
+                        <div style="text-align: center;">
+                            <button mat-button class="connect_button" (click)="connect()">+ Ajouter une
+                                formation</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </mat-tab>
+        <mat-tab label="Paramètres">
+            <h1 class="section_title">Mes paramètres</h1>
+            <p>...</p>
+        </mat-tab>
+    </mat-tab-group>
+</div>
