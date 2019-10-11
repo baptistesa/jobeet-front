@@ -19,6 +19,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material';
 import { ProfilComponent } from './profil/profil.component';
 import { EntrepriseComponent } from './entreprise/entreprise.component';
+import { AllEntreprisesComponent } from './all-entreprises/all-entreprises.component';
 
 
 
@@ -30,7 +31,8 @@ import { EntrepriseComponent } from './entreprise/entreprise.component';
     HomeComponent,
     LoginComponent,
     ProfilComponent,
-    EntrepriseComponent
+    EntrepriseComponent,
+    AllEntreprisesComponent
   ],
   imports: [
     BrowserModule,
