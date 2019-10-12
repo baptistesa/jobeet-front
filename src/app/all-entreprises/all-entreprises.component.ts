@@ -2,6 +2,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { NavbarService } from '../navigation/service/navbar.service';
 import { DomSanitizer } from '@angular/platform-browser';
 import { AllEntreprisesService } from './service/all-entreprises.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-all-entreprises',
@@ -15,7 +16,7 @@ export class AllEntreprisesComponent implements OnInit {
   user: any;
   entreprises: any;
 
-  constructor(private nav: NavbarService, private _sanitizer: DomSanitizer, private http: AllEntreprisesService) {
+  constructor(public router: Router, private nav: NavbarService, private _sanitizer: DomSanitizer, private http: AllEntreprisesService) {
     this.user = JSON.parse(localStorage.getItem("user"));
     this.getEntreprises();
   }
@@ -24,23 +25,28 @@ export class AllEntreprisesComponent implements OnInit {
     this.nav.show();
   }
 
-  // Ajouter une expérience
+  // Ajouter une entreprise
   addEntreprise() {
     this.display_form = true;
   }
-
-  /*// Get sanitized picture
-  getBackground(image) {
-    let safe_pic = "http://localhost:3000/pictures/" + image
-    return this._sanitizer.bypassSecurityTrustStyle(`url(${safe_pic})`);
-  }*/
 
   // Retrieve entreprises
   getEntreprises() {
     this.http.getEntreprises()
       .subscribe(data => {
-        this.entreprises = data
+        this.entreprises = JSON.parse(JSON.stringify(data)).data;
+        console.log("Test : " + this.entreprises)
       })
-      console.log("Entreprises == ", this.entreprises)
+      
   }
+ 
+  // Get image for entreprise's background box
+  getBackground(url) {
+    return this._sanitizer.bypassSecurityTrustStyle(`url(${url})`);
+  }
+
+  sendtoProfil(entreprise) {
+    localStorage.setItem("entreprise", JSON.stringify(entreprise));
+    this.router.navigate(["/entreprise"]);
+  } 
 }
