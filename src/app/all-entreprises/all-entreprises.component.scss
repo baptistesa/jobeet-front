@@ -1,0 +1,46 @@
+.main_container {
+  padding: 2%;
+  background: #f9fcfc;
+  padding-top: 0 !important;
+}
+
+.title {
+  font-family: "locator-regular";
+  margin-bottom: 0;
+  margin-top: 5vh;
+  font-size: 20px;
+  color: #e50051;
+}
+
+.subtitle {
+  color: gray;
+  font-family: "locator-regular";
+  margin-top: 0;
+  font-size: 16px;
+  margin-bottom: 2.5rem; 
+}
+
+.company {
+    height:11rem;
+    width: 10rem;
+    display: inline-block;
+    margin-left: 3%;
+    margin-top: 1rem;
+    box-shadow: 0 4px 16px 0 rgba(50, 56, 63, 0.08);
+    .picture2 {
+        height:9rem;
+        width: 10rem;
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat; 
+    }
+    p {
+        color: gray;
+        font-size: 16px;
+        font-family: "locator-regular";
+        text-align: center;
+        font-weight: 800;
+    }
+}
+
+    
