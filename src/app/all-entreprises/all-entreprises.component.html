@@ -3,8 +3,14 @@
         Les entreprises
     </h1>
     <p class="subtitle">Rechercher une entreprise</p>
-    
-    <mat-tab-group style="margin-top: 3%;">
-    </mat-tab-group>
-</div>
 
+    <div>
+    <div class="company" *ngFor="let entreprise of entreprises" (click)="sendtoProfil(entreprise)">
+        <div class="picture2"
+            [style.background-image]="getBackground('https://upload.wikimedia.org/wikipedia/fr/d/d8/Epita.png')">
+        </div>
+        <p>{{ entreprise.name }}</p>
+    </div>
+    </div>
+
+</div>
