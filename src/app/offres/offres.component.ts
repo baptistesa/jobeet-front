@@ -1,0 +1,44 @@
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { NavbarService } from '../navigation/service/navbar.service';
+import { DomSanitizer } from '@angular/platform-browser';
+import { OffresService } from './service/offres.service';
+
+@Component({
+  selector: 'app-offres',
+  templateUrl: './offres.component.html',
+  styleUrls: ['./offres.component.scss'],
+  encapsulation: ViewEncapsulation.None
+})
+export class OffresComponent implements OnInit {
+
+  display_form = false;
+  entreprise: any;
+  offres;
+
+  constructor(private nav: NavbarService, private _sanitizer: DomSanitizer, private http: OffresService) {
+    this.getOffres();
+  }
+
+  ngOnInit() {
+    this.nav.show();
+  }
+
+  // Ajouter une offre
+  addOffres() {
+    this.display_form = true;
+  }
+
+  // Get sanitized picture
+  getBackground(url) {
+    return this._sanitizer.bypassSecurityTrustStyle(`url(${url})`);
+  }
+
+  getOffres() {
+    this.http.getOffres()
+      .subscribe(data => {
+        //console.log("test offres : " + JSON.stringify(data));
+        this.offres = JSON.parse(JSON.stringify(data)).data;
+      })
+  }
+
+}
