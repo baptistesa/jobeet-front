@@ -39,7 +39,8 @@
                         <div class="infos col-lg-12">
                             <p *ngIf="cv && cv != null && !display_form_description" style="margin-top: 3%">
                                 {{ cv.cv.description }}</p>
-                            <p *ngIf="(!cv || cv == null || !cv.cv.description || cv.cv.description == '') && !display_form_description" style="margin-top: 3%"><i>Ajoutez
+                            <p *ngIf="(!cv || cv == null || !cv.cv.description || cv.cv.description == '') && !display_form_description"
+                                style="margin-top: 3%"><i>Ajoutez
                                     une description pour vous présenter aux recruteurs !</i></p>
 
                             <div *ngIf="display_form_description" class="form">
@@ -70,50 +71,56 @@
 
                         <h1 class="section_title">Mes expériences professionnelles</h1>
                         <div class="infos col-lg-12">
-                            <h1>Software engineer</h1>
-                            <h2>Informatique company</h2>
-                            <p style="margin-top: 3%">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-                                consequat,
-                                nisi dignissim viverra
-                                gravida, nunc nulla tincidunt velit, rhoncus dignissim nisi erat ut arcu. Etiam vel ante
-                                nec
-                                eros hendrerit egestas. Nunc vel neque nulla. Sed porttitor suscipit hendrerit. Nam sit
-                                amet
-                                auctor nulla. Cras malesuada quam nec consectetur luctus. Duis rhoncus diam in dignissim
-                                dictum.
-                                Duis suscipit dolor vel nisl tristique placerat.</p>
-                            <hr>
-                            <h1>Developer</h1>
-                            <h2>Informatique company</h2>
-                            <p style="margin-top: 3%">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-                                consequat,
-                                nisi dignissim viverra
-                                gravida, nunc nulla tincidunt velit, rhoncus dignissim nisi erat ut arcu. Etiam vel ante
-                                nec
-                                eros hendrerit egestas. Nunc vel neque nulla. Sed porttitor suscipit hendrerit. Nam sit
-                                amet
-                                auctor nulla. Cras malesuada quam nec consectetur luctus. Duis rhoncus diam in dignissim
-                                dictum.
-                                Duis suscipit dolor vel nisl tristique placerat.</p>
+                            <div *ngFor="let experience of cv.experiences; let i = index;">
+                                <h1>{{ experience.position }}</h1>
+                                <h2 style="margin-bottom: 0">{{ experience.company }}</h2>
+                                <span
+                                    style="color: gray; margin-top: 0; font-size: 10px;">{{ experience.start_date | date: 'dd/MM/yyyy' }}
+                                    - {{ experience.end_date | date: 'dd/MM/yyyy'}}</span>
+                                <p style="margin-top: 3%">{{ experience.description }}</p>
+                                <hr *ngIf="i != cv.experiences.length - 1">
+                            </div>
 
 
 
                             <div [ngClass]="display_form ? 'add_exp_visible' : 'add_exp'">
                                 <hr>
+                                <h1>Ajouter une expérience</h1>
                                 <div class="form">
 
                                     <mat-form-field style="width: 20rem">
-                                        <input matInput>
-                                        <mat-placeholder class="placeholder">Fonction</mat-placeholder>
+                                        <input matInput name="position" [(ngModel)]="experience.position">
+                                        <mat-placeholder class="placeholder">Position</mat-placeholder>
                                     </mat-form-field>
                                     <br>
                                     <mat-form-field style="width: 20rem">
-                                        <input matInput>
+                                        <input matInput name="company" [(ngModel)]="experience.company">
                                         <mat-placeholder class="placeholder">Nom de l'entreprise</mat-placeholder>
                                     </mat-form-field>
                                     <br>
+
+
+                                    <mat-form-field>
+                                        <input name="start_date_experience" matInput
+                                            [matDatepicker]="start_date_experience" placeholder="Date de début" required
+                                            [(ngModel)]="experience.start_date">
+                                        <mat-datepicker-toggle matSuffix [for]="start_date_experience">
+                                        </mat-datepicker-toggle>
+                                        <mat-datepicker #start_date_experience></mat-datepicker>
+                                    </mat-form-field>
+
+                                    <mat-form-field style="margin-left: 5%;">
+                                        <input name="end_date_experience" matInput [matDatepicker]="end_date_experience"
+                                            placeholder="Date de fin" required [(ngModel)]="formation.end_date">
+                                        <mat-datepicker-toggle matSuffix [for]="end_date_experience">
+                                        </mat-datepicker-toggle>
+                                        <mat-datepicker #end_date_experience></mat-datepicker>
+                                    </mat-form-field>
+                                    <br>
+
                                     <mat-form-field style="width: 30rem">
-                                        <textarea rows="10" colds="500" matInput></textarea>
+                                        <textarea rows="10" colds="500" matInput name="description_experience"
+                                            [(ngModel)]="experience.description"></textarea>
                                         <mat-placeholder class="placeholder">Description</mat-placeholder>
                                     </mat-form-field>
 
@@ -133,16 +140,69 @@
 
                         <h1 class="section_title">Mes formations</h1>
                         <div *ngIf="cv && cv != null" class="infos col-lg-12">
-                            <div *ngFor="let formation of cv.formations; let i = index;">
-                                <h1>Master degree in Computer Science</h1>
-                                <h2>{{ formation.school }}</h2>
-                                <p style="margin-top: 3%">{{ formation.description }}</p>
-                                <hr *ngIf="i != cv.formations.length - 1">
+                            <p *ngIf="!cv || !cv.formations || cv.formations.length == 0"><i>Aucune formation
+                                    ajoutée</i></p>
+                            <div *ngIf="cv.formations && cv.formations.length != 0">
+
+                                <div *ngFor="let formation of cv.formations; let i = index;">
+                                    <h1>{{ formation.title }}</h1>
+                                    <h2 style="margin-bottom: 0;">{{ formation.school }}</h2>
+                                    <span
+                                        style="color: gray; margin-top: 0; font-size: 10px;">{{ formation.start_date | date: 'dd/MM/yyyy' }}
+                                        - {{ formation.end_date | date: 'dd/MM/yyyy'}}</span>
+                                    <p style="margin-top: 3%">{{ formation.description }}</p>
+                                    <hr *ngIf="i != cv.formations.length - 1">
+                                </div>
                             </div>
+
+
+                            <div *ngIf="display_form_formation">
+                                <hr>
+                                <h1>Ajouter une formation</h1>
+                                <div class="form">
+
+                                    <mat-form-field style="width: 20rem">
+                                        <input matInput name="formation_title" [(ngModel)]="formation.title">
+                                        <mat-placeholder class="placeholder">Formation</mat-placeholder>
+                                    </mat-form-field>
+                                    <br>
+                                    <mat-form-field style="width: 20rem">
+                                        <input matInput name="formation_school" [(ngModel)]="formation.school">
+                                        <mat-placeholder class="placeholder">Nom de l'école</mat-placeholder>
+                                    </mat-form-field>
+                                    <br>
+
+
+                                    <mat-form-field>
+                                        <input name="start_date" matInput [matDatepicker]="start_date"
+                                            placeholder="Date de début" required [(ngModel)]="formation.start_date">
+                                        <mat-datepicker-toggle matSuffix [for]="start_date"></mat-datepicker-toggle>
+                                        <mat-datepicker #start_date></mat-datepicker>
+                                    </mat-form-field>
+
+                                    <mat-form-field style="margin-left: 5%;">
+                                        <input name="end_date" matInput [matDatepicker]="end_date"
+                                            placeholder="Date de fin" required [(ngModel)]="formation.end_date">
+                                        <mat-datepicker-toggle matSuffix [for]="end_date"></mat-datepicker-toggle>
+                                        <mat-datepicker #end_date></mat-datepicker>
+                                    </mat-form-field>
+
+
+                                    <br>
+                                    <mat-form-field style="width: 30rem">
+                                        <textarea rows="10" colds="500" name="fomation.description" matInput
+                                            [(ngModel)]="formation.description"></textarea>
+                                        <mat-placeholder class="placeholder">Description</mat-placeholder>
+                                    </mat-form-field>
+
+                                </div>
+                            </div>
+
                         </div>
 
+
                         <div style="text-align: center;">
-                            <button mat-button class="connect_button" (click)="connect()">+ Ajouter une
+                            <button mat-button class="connect_button" (click)="displayFormFormation()">+ Ajouter une
                                 formation</button>
                         </div>
                     </div>
