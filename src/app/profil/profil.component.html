@@ -14,7 +14,8 @@
                         <h1 class="section_title">Mes informations</h1>
                         <div class="row">
                             <div class="infos col-lg-4"
-                                style="margin-left: 3%;height: 21rem; background-size: cover; background-position: center" [style.background-image]="getBackground(user.picture_path)">
+                                style="margin-left: 3%;height: 21rem; background-size: cover; background-position: center"
+                                [style.background-image]="getBackground(user.picture_path)">
 
                             </div>
                             <div class="infos col-lg-7" style="margin-left: 3%; height: 21rem;">
@@ -36,16 +37,11 @@
                     <div>
                         <h1 class="section_title">A propos de moi</h1>
                         <div class="infos col-lg-12">
-                            <p style="margin-top: 3%">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-                                consequat,
-                                nisi dignissim viverra
-                                gravida, nunc nulla tincidunt velit, rhoncus dignissim nisi erat ut arcu. Etiam vel ante
-                                nec
-                                eros hendrerit egestas. Nunc vel neque nulla. Sed porttitor suscipit hendrerit. Nam sit
-                                amet
-                                auctor nulla. Cras malesuada quam nec consectetur luctus. Duis rhoncus diam in dignissim
-                                dictum.
-                                Duis suscipit dolor vel nisl tristique placerat.</p>
+                            <p *ngIf="cv && cv != null" style="margin-top: 3%">{{ cv.cv.description }}</p>
+                        </div>
+
+                        <div style="text-align: center;">
+                            <button mat-button class="connect_button" (click)="connect()">+ Modifier ma description</button>
                         </div>
                     </div>
 
@@ -124,10 +120,13 @@
                     <div>
 
                         <h1 class="section_title">Mes formations</h1>
-                        <div class="infos col-lg-12" *ngFor="let formation of cv.formations">
-                            <h1>Master degree in Computer Science</h1>
-                            <h2>{{ formation.school }}</h2>
-                            <p style="margin-top: 3%">{{ formation.description }}</p>
+                        <div *ngIf="cv && cv != null" class="infos col-lg-12">
+                            <div *ngFor="let formation of cv.formations; let i = index;">
+                                <h1>Master degree in Computer Science</h1>
+                                <h2>{{ formation.school }}</h2>
+                                <p style="margin-top: 3%">{{ formation.description }}</p>
+                                <hr *ngIf="i != cv.formations.length - 1">
+                            </div>
                         </div>
 
                         <div style="text-align: center;">

@@ -38,7 +38,6 @@ export class ProfilComponent implements OnInit {
 
   // Retrieve CV
   getCV() {
-    console.log("id useeer == ", this.user.id)
     this.http.getCV(this.user.id)
       .subscribe(data => {
         this.cv = data
