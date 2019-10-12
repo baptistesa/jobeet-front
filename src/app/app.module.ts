@@ -33,7 +33,7 @@ import { OffresComponent } from './offres/offres.component';
     LoginComponent,
     ProfilComponent,
     EntrepriseComponent,
-    AllEntreprisesComponent
+    AllEntreprisesComponent,
     OffresComponent
   ],
   imports: [

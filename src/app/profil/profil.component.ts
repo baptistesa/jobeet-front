@@ -13,8 +13,12 @@ import { ProfilService } from './service/profil.service';
 export class ProfilComponent implements OnInit {
 
   display_form = false;
+  display_form_description = false;
   user: any;
   cv: any;
+
+  // Fields
+  description = "";
 
   constructor(private nav: NavbarService, private _sanitizer: DomSanitizer, private http: ProfilService) {
     this.user = JSON.parse(localStorage.getItem("user"));
@@ -42,6 +46,20 @@ export class ProfilComponent implements OnInit {
       .subscribe(data => {
         this.cv = data
       })
+  }
+
+  // Display form to update description
+  displayFormDescription() {
+    if (!this.display_form_description) {
+      this.display_form_description = true;
+      return;
+    }
+    this.display_form_description = false;
+    this.http.updateDescription(this.description)
+      .subscribe(data => {
+        this.getCV();
+        alert('Description modifiée avec succès !')
+      });
   }
 
 }

@@ -37,11 +37,23 @@
                     <div>
                         <h1 class="section_title">A propos de moi</h1>
                         <div class="infos col-lg-12">
-                            <p *ngIf="cv && cv != null" style="margin-top: 3%">{{ cv.cv.description }}</p>
+                            <p *ngIf="cv && cv != null && !display_form_description" style="margin-top: 3%">
+                                {{ cv.cv.description }}</p>
+                            <p *ngIf="(!cv || cv == null || !cv.cv.description || cv.cv.description == '') && !display_form_description" style="margin-top: 3%"><i>Ajoutez
+                                    une description pour vous présenter aux recruteurs !</i></p>
+
+                            <div *ngIf="display_form_description" class="form">
+
+                                <mat-form-field style="width: 20rem">
+                                    <input matInput [(ngModel)]="description">
+                                    <mat-placeholder class="placeholder">Modifier ma description</mat-placeholder>
+                                </mat-form-field>
+                            </div>
                         </div>
 
                         <div style="text-align: center;">
-                            <button mat-button class="connect_button" (click)="connect()">+ Modifier ma description</button>
+                            <button mat-button class="connect_button" (click)="displayFormDescription()">+ Modifier ma
+                                description</button>
                         </div>
                     </div>
 
