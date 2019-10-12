@@ -24,6 +24,7 @@ import { OffresComponent } from './offres/offres.component';
 import { ChatListComponent } from './chat-list/chat-list.component';
 import { MatchComponent } from './match/match.component';
 import { OffreComponent } from './offre/offre.component';
+import { MesoffresComponent } from './mesoffres/mesoffres.component';
 
 
 
@@ -40,7 +41,8 @@ import { OffreComponent } from './offre/offre.component';
     OffresComponent,
     ChatListComponent,
     MatchComponent,
-    OffreComponent
+    OffreComponent,
+    MesoffresComponent
   ],
   imports: [
     BrowserModule,

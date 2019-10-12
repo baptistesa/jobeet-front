@@ -7,6 +7,7 @@ import { ProfilComponent } from './profil/profil.component';
 import { EntrepriseComponent } from './entreprise/entreprise.component';
 import { OffreComponent } from './offre/offre.component';
 import { OffresComponent } from './offres/offres.component';
+import { MesoffresComponent } from './mesoffres/mesoffres.component';
 import { AllEntreprisesComponent } from './all-entreprises/all-entreprises.component';
 import { ChatListComponent } from './chat-list/chat-list.component';
 import { MatchComponent } from './match/match.component';
@@ -21,6 +22,7 @@ const routes: Routes = [
   { path: 'entreprises', component: AllEntreprisesComponent, data: { title: 'Toutes les entreprises' }, canActivate: [AuthGuard] },
   { path: 'offre', component: OffreComponent, data: { title: 'Offre' }, canActivate: [AuthGuard] },
   { path: 'offres', component: OffresComponent, data: { title: 'Offres' }, canActivate: [AuthGuard] },
+  { path: 'mesoffres', component: MesoffresComponent, data: { title: 'MesOffres' }, canActivate: [AuthGuard] },
   { path: 'chat', component: ChatListComponent, data: { title: 'Chat' }, canActivate: [AuthGuard] },
   { path: 'matchs', component: MatchComponent, data: { title: 'Matchs' }, canActivate: [AuthGuard] }
 ];
