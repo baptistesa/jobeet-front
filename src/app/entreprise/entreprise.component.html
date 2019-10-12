@@ -14,17 +14,15 @@
                         <h1 class="section_title">Informations de l'entreprise</h1>
                         <div class="row">
                             <div class="infos col-lg-4"
-                                style="margin-left: 3%;height: 21rem; background-size: cover; background-position: center" [style.background-image]="getBackground('https://upload.wikimedia.org/wikipedia/fr/d/d8/Epita.png')">
+                                style="margin-left: 3%;height: 21rem; background-size: contain; background-position: center; background-repeat: no-repeat " [style.background-image]="getBackground('https://upload.wikimedia.org/wikipedia/fr/d/d8/Epita.png')">
 
                             </div>
                             <div class="infos col-lg-7" style="margin-left: 3%; height: 21rem;">
                                 <p class="title_entry">Nom</p>
-                                <!--<p class="subtitle_entry">{{ entreprise.name }}</p>-->
-                                <p class="subtitle_entry">EPITA</p>
+                                <p class="subtitle_entry">{{entreprise.name}}</p>
                                 <hr>
                                 <p class="title_entry">Description</p>
-                                <!--<p class="subtitle_entry">{{ entreprise.description }}</p>-->
-                                <p class="subtitle_entry">Ecole Pour Informatique et les Techniques Avancées</p>
+                                <p class="subtitle_entry">{{entreprise.description}}</p>
                             </div>
                         </div>
                     </div>

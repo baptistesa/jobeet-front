@@ -14,6 +14,7 @@ export class EntrepriseComponent implements OnInit {
   entreprise: any;
 
   constructor(private nav: NavbarService, private _sanitizer: DomSanitizer) {
+    this.entreprise = JSON.parse(localStorage.getItem("entreprise"));
   }
 
   ngOnInit() {
