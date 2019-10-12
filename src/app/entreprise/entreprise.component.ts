@@ -21,11 +21,6 @@ export class EntrepriseComponent implements OnInit {
     this.nav.show();
   }
 
-  // Ajouter une expérience
-  addExperience() {
-    this.display_form = true;
-  }
-
   // Get sanitized picture
   getBackground(url) {
     return this._sanitizer.bypassSecurityTrustStyle(`url(${url})`);
