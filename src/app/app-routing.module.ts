@@ -19,6 +19,7 @@ const routes: Routes = [
   { path: 'profil', component: ProfilComponent, data: { title: 'Mon profil' }, canActivate: [AuthGuard] },
   { path: 'entreprise', component: EntrepriseComponent, data: { title: 'Profil entreprise' }, canActivate: [AuthGuard] },
   { path: 'entreprises', component: AllEntreprisesComponent, data: { title: 'Toutes les entreprises' }, canActivate: [AuthGuard] },
+  { path: 'offre', component: OffreComponent, data: { title: 'Offre' }, canActivate: [AuthGuard] },
   { path: 'offres', component: OffresComponent, data: { title: 'Offres' }, canActivate: [AuthGuard] },
   { path: 'chat', component: ChatListComponent, data: { title: 'Chat' }, canActivate: [AuthGuard] },
   { path: 'matchs', component: MatchComponent, data: { title: 'Matchs' }, canActivate: [AuthGuard] }
