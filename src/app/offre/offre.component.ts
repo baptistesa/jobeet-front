@@ -2,28 +2,24 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { NavbarService } from '../navigation/service/navbar.service';
 import { DomSanitizer } from '@angular/platform-browser';
 
+
 @Component({
-  selector: 'app-entreprise',
-  templateUrl: './entreprise.component.html',
-  styleUrls: ['./entreprise.component.scss'],
+  selector: 'app-offre',
+  templateUrl: './offre.component.html',
+  styleUrls: ['./offre.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class EntrepriseComponent implements OnInit {
+export class OffreComponent implements OnInit {
 
   display_form = false;
-  entreprise: any;
+  offre;
 
   constructor(private nav: NavbarService, private _sanitizer: DomSanitizer) {
-    this.entreprise = JSON.parse(localStorage.getItem("entreprise"));
-  }
+    this.offre = JSON.parse(localStorage.getItem("offre"));
+   }
 
   ngOnInit() {
     this.nav.show();
-  }
-
-  // Get sanitized picture
-  getBackground(url) {
-    return this._sanitizer.bypassSecurityTrustStyle(`url(${url})`);
   }
 
 }

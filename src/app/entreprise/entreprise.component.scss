@@ -28,7 +28,19 @@
   background-color: #e50051;
 }
 
-.infos {
+.picture3 {
+  margin-left: 3%;
+  width: 20rem;
+  border-radius: 8px;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  box-shadow: 0 4px 16px 0 rgba(50, 56, 63, 0.08);
+  margin-top: 3%;
+  background-color: white;
+}
+
+.informations {
   background-color: white;
   box-shadow: 0 4px 16px 0 rgba(50, 56, 63, 0.08);
   width: 100%;
@@ -57,35 +69,6 @@
   font-family: "locator-regular";
   color: gray;
   font-size: 20px;
-}
-
-.connect_button {
-  font-family: "locator-regular";
-  background: #e50051;
-  color: white;
-  margin-top: 5% !important;
-  width: 50%;
-  border-top-left-radius: 20px !important;
-  border-bottom-right-radius: 20px !important;
-}
-
-.add_exp {
-  display: none;
-}
-
-.add_exp_visible {
-  display: block;
-}
-
-mat-focused .mat-form-field-label {
-  color: #e50051;
-}
-.mat-focused .mat-form-field-underline .mat-form-field-ripple {
-  background: #e50051;
-}
-
-.mat-focused .placeholder {
-  color: #e50051;
 }
 
 .title_entry {

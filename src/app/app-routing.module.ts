@@ -5,6 +5,7 @@ import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './guards/auth.guard';
 import { ProfilComponent } from './profil/profil.component';
 import { EntrepriseComponent } from './entreprise/entreprise.component';
+import { OffreComponent } from './offre/offre.component';
 import { OffresComponent } from './offres/offres.component';
 import { AllEntreprisesComponent } from './all-entreprises/all-entreprises.component';
 import { ChatListComponent } from './chat-list/chat-list.component';

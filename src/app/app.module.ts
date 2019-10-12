@@ -23,6 +23,7 @@ import { AllEntreprisesComponent } from './all-entreprises/all-entreprises.compo
 import { OffresComponent } from './offres/offres.component';
 import { ChatListComponent } from './chat-list/chat-list.component';
 import { MatchComponent } from './match/match.component';
+import { OffreComponent } from './offre/offre.component';
 
 
 
@@ -38,7 +39,8 @@ import { MatchComponent } from './match/match.component';
     AllEntreprisesComponent,
     OffresComponent,
     ChatListComponent,
-    MatchComponent
+    MatchComponent,
+    OffreComponent
   ],
   imports: [
     BrowserModule,

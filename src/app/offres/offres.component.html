@@ -10,18 +10,14 @@
             <p> </p>   
             <div class="infos col-lg-12" *ngFor="let offre of offres">
                     <div class="card">
-                            <div class="card-header">
-                                {{offre.title}}
-                            </div>
                             <div class="card-body">
-                                <h5 class="card-title">Titre de l'offre</h5>
-                                <p class="card-text">Détail de l'offre.</p>
-                                <a href="#" class="btn btn-primary">Voir plus</a>
+                                <h4 class="card-title">{{offre.title}}</h4>
+                                <div class="description">
+                                    <p class="card-text">{{offre.description}}</p>
+                                </div>
+                                <button (click)="sendtoProfil(offre)" class="btn btn-link">En savoir plus</button>
                             </div>
                         </div>
-                    <h1>Master degree in Computer Science</h1>
-                    <h2>{{ formation.school }}</h2>
-                    <p style="margin-top: 3%">{{ formation.description }}</p>
                 </div> 
             
              
