@@ -102,7 +102,8 @@ export class LoginComponent implements OnInit {
       mail: this.mailSignUpFormControl.value,
       phone: this.phoneSignUpFormControl.value,
       password: this.passwordSignUpFormControl.value,
-      role: role
+      role: role,
+      id_entreprise: null
     }
     this.auth.signUp(body)
       .subscribe(data => {
