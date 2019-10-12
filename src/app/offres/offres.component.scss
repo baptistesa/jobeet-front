@@ -4,6 +4,12 @@
     padding-top: 0 !important;
   }
   
+  .description {
+    line-height: 1.5em;
+    height: 3em;
+    overflow: hidden;
+  }
+
   .title {
     font-family: "locator-regular";
     margin-bottom: 0;
@@ -11,7 +17,7 @@
     font-size: 20px;
     color: #e50051;
   }
-  
+
   .subtitle {
     color: gray;
     font-family: "locator-regular";
