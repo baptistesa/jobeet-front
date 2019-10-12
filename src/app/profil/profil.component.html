@@ -71,6 +71,8 @@
 
                         <h1 class="section_title">Mes expériences professionnelles</h1>
                         <div class="infos col-lg-12">
+                            <p *ngIf="!cv || !cv.experiences || cv.experiences.length == 0"><i>Aucune expérience
+                                    ajoutée</i></p>
                             <div *ngFor="let experience of cv.experiences; let i = index;">
                                 <h1>{{ experience.position }}</h1>
                                 <h2 style="margin-bottom: 0">{{ experience.company }}</h2>

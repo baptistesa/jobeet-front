@@ -8,6 +8,7 @@ import { EntrepriseComponent } from './entreprise/entreprise.component';
 import { OffresComponent } from './offres/offres.component';
 import { AllEntreprisesComponent } from './all-entreprises/all-entreprises.component';
 import { ChatListComponent } from './chat-list/chat-list.component';
+import { MatchComponent } from './match/match.component';
 
 
 
@@ -18,7 +19,8 @@ const routes: Routes = [
   { path: 'entreprise', component: EntrepriseComponent, data: { title: 'Profil entreprise' }, canActivate: [AuthGuard] },
   { path: 'entreprises', component: AllEntreprisesComponent, data: { title: 'Toutes les entreprises' }, canActivate: [AuthGuard] },
   { path: 'offres', component: OffresComponent, data: { title: 'Offres' }, canActivate: [AuthGuard] },
-  { path: 'chat', component: ChatListComponent, data: { title: 'Chat' }, canActivate: [AuthGuard] }
+  { path: 'chat', component: ChatListComponent, data: { title: 'Chat' }, canActivate: [AuthGuard] },
+  { path: 'matchs', component: MatchComponent, data: { title: 'Matchs' }, canActivate: [AuthGuard] }
 ];
 
 @NgModule({

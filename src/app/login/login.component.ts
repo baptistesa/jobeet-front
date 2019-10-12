@@ -51,6 +51,7 @@ export class LoginComponent implements OnInit {
   codeFormControl = new FormControl('', [
     Validators.required
   ]);
+  is_recruteur = false;
 
   matcher = new MyErrorStateMatcher();
 
@@ -91,6 +92,9 @@ export class LoginComponent implements OnInit {
 
   // Inscription
   signUp() {
+    let role = 0;
+    if (this.is_recruteur)
+      role = 1;
     this.displaySpinner = true;
     let body = {
       name: this.nameFormControl.value,
@@ -98,7 +102,7 @@ export class LoginComponent implements OnInit {
       mail: this.mailSignUpFormControl.value,
       phone: this.phoneSignUpFormControl.value,
       password: this.passwordSignUpFormControl.value,
-      role: 0
+      role: role
     }
     this.auth.signUp(body)
       .subscribe(data => {

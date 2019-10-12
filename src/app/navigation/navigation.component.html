@@ -14,22 +14,28 @@
             <a mat-list-item routerLink="/" [routerLinkActive]="['is-active']" style="font-family: 'locator-regular'">
                 <mat-icon style="color: #e50051">home</mat-icon>Dashboard
             </a>
-            <a mat-list-item routerLink="/offres" style="font-family: 'locator-regular'">
+            <a mat-list-item routerLink="/offres" style="font-family: 'locator-regular'" *ngIf="user.role == 0">
                 <mat-icon style="color: #e50051">date_range</mat-icon>Offres d'emploi
+            </a>
+            <a mat-list-item routerLink="/offres" style="font-family: 'locator-regular'" *ngIf="user.role == 1">
+                <mat-icon style="color: #e50051">date_range</mat-icon>Mes offres d'emploi
             </a>
             <a mat-list-item routerLink="/entreprises" style="font-family: 'locator-regular'">
                 <mat-icon style="color: #e50051">apartment</mat-icon>Entreprises
             </a>
+            <a mat-list-item routerLink="/entreprises" style="font-family: 'locator-regular'" *ngIf="user.role == 1">
+                <mat-icon style="color: #e50051">apartment</mat-icon>Mon entreprise
+            </a>
             <a mat-list-item routerLink="/chat" style="font-family: 'locator-regular'">
                 <mat-icon style="color: #e50051">forum</mat-icon>Messagerie
             </a>
-            <a mat-list-item routerLink="#" style="font-family: 'locator-regular'">
+            <a mat-list-item routerLink="/matchs" style="font-family: 'locator-regular'">
                 <mat-icon style="color: #e50051">favorite</mat-icon>Mes matchs
             </a>
             <a mat-list-item routerLink="/profil" style="font-family: 'locator-regular'">
                 <mat-icon style="color: #e50051">person_pin</mat-icon>Mon profil
             </a>
-            <a mat-list-item routerLink="/profil" style="font-family: 'locator-regular'" *ngIf="user.role != 0">
+            <a mat-list-item routerLink="/profil" style="font-family: 'locator-regular'" *ngIf="user.role == 2">
                 <mat-icon style="color: #e50051">memory</mat-icon>Administration
             </a>
             <a mat-list-item routerLink="#" style="position: absolute; bottom: 0; font-family: 'locator-regular'" (click)="logout()">
