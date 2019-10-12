@@ -21,6 +21,8 @@ import { ProfilComponent } from './profil/profil.component';
 import { EntrepriseComponent } from './entreprise/entreprise.component';
 import { AllEntreprisesComponent } from './all-entreprises/all-entreprises.component';
 import { OffresComponent } from './offres/offres.component';
+import { ChatListComponent } from './chat-list/chat-list.component';
+import { MatchComponent } from './match/match.component';
 
 
 
@@ -34,7 +36,9 @@ import { OffresComponent } from './offres/offres.component';
     ProfilComponent,
     EntrepriseComponent,
     AllEntreprisesComponent,
-    OffresComponent
+    OffresComponent,
+    ChatListComponent,
+    MatchComponent
   ],
   imports: [
     BrowserModule,
