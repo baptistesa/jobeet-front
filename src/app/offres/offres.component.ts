@@ -7,7 +7,8 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-offres',
   templateUrl: './offres.component.html',
-  styleUrls: ['./offres.component.scss']
+  styleUrls: ['./offres.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class OffresComponent implements OnInit {
 

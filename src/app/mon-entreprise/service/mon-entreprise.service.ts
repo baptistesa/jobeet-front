@@ -58,4 +58,6 @@ export class MonEntrepriseService {
     };
     return this.http.get(this.base_url + "getEntrepriseOffres/" + id, httpOptions);
   }
+
+  
 }
