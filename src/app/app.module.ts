@@ -22,11 +22,11 @@ import { EntrepriseComponent } from './entreprise/entreprise.component';
 import { AllEntreprisesComponent } from './all-entreprises/all-entreprises.component';
 import { OffresComponent } from './offres/offres.component';
 import { ChatListComponent } from './chat-list/chat-list.component';
-import { MatchComponent } from './match/match.component';
 import { MonEntrepriseComponent } from './mon-entreprise/mon-entreprise.component';
 import { OffreComponent } from './offre/offre.component';
 import { MesoffresComponent } from './mesoffres/mesoffres.component';
 import { SearchComponent } from './search/search.component';
+import { MatchsComponent } from './matchs/matchs.component';
 
 
 
@@ -42,11 +42,11 @@ import { SearchComponent } from './search/search.component';
     AllEntreprisesComponent,
     OffresComponent,
     ChatListComponent,
-    MatchComponent,
     MonEntrepriseComponent,
     OffreComponent,
     MesoffresComponent,
-    SearchComponent
+    SearchComponent,
+    MatchsComponent
   ],
   imports: [
     BrowserModule,
