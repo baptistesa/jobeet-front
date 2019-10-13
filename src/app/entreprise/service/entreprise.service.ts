@@ -19,6 +19,15 @@ export class EntrepriseService {
         'Authorization': localStorage.getItem("token")
       })
     };
-    return this.http.get(this.base_url + "getEntreprise/" + id);
+    return this.http.get(this.base_url + "getEntreprise/" + id, httpOptions);
+  }
+
+  getEntrepriseOffres(id) {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': localStorage.getItem("token")
+      })
+    };
+    return this.http.get(this.base_url + "getEntrepriseOffres/" + id, httpOptions);
   }
 }
