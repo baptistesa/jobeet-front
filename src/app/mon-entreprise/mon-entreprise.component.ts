@@ -14,6 +14,7 @@ import { MonEntrepriseService } from './service/mon-entreprise.service';
 export class MonEntrepriseComponent implements OnInit {
 
   user: any;
+  display_form = false;
   entreprise: any;
   entreprises: any;
   add_entreprise = {
@@ -25,6 +26,8 @@ export class MonEntrepriseComponent implements OnInit {
     this.user = JSON.parse(localStorage.getItem("user"));
     if (this.user.id_entreprise != null)
       this.getEntreprise(this.user.id_entreprise);
+    else
+      this.getEntreprises();
   }
 
   ngOnInit() {
@@ -41,13 +44,35 @@ export class MonEntrepriseComponent implements OnInit {
   getEntreprise(id) {
     this.http.getEntreprise(id)
       .subscribe(data => {
-        this.entreprise = JSON.parse(JSON.stringify(data)).data;
+        this.entreprise = JSON.parse(JSON.stringify(data)).data[0];
+        console.log("entreprise : ", this.entreprise)
       })
   }
 
   addEntreprise() {
+    this.display_form = true;
+
+    this.add_entreprise.name = this.add_entreprise.name;
+    this.add_entreprise.description = this.add_entreprise.description;
     this.http.addEntreprise(this.add_entreprise)
-      .subscribe();
+      .subscribe(data => {
+        this.modifyIdEntreprise(JSON.parse(JSON.stringify(data)).data[0])
+        alert("Entreprise ajoutée avec succès");
+      }, err => {
+        console.log("error == ", err)
+      });
   }
 
+  modifyIdEntreprise(entreprise) {
+    let body = {
+      id_entreprise : entreprise.id
+    }
+    this.http.modifyIdEntreprise(body)
+      .subscribe();
+    //refresh user !!!!
+  }
+
+  getBackground(url) {
+    return this._sanitizer.bypassSecurityTrustStyle(`url(${url})`);
+  }
 }
