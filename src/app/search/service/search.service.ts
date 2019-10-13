@@ -18,7 +18,7 @@ export class SearchService {
         'Authorization': localStorage.getItem("token")
       })
     };
-    return this.http.get(this.base_url + "offres/", httpOptions)
+    return this.http.get(this.base_url + "offres/getOffres", httpOptions)
   }
 
   // Return all users
@@ -28,7 +28,7 @@ export class SearchService {
         'Authorization': localStorage.getItem("token")
       })
     };
-    return this.http.get(this.base_url + "users/", httpOptions)
+    return this.http.get(this.base_url + "users/getUsers", httpOptions)
   }
 
   // Return all entreprises
@@ -38,6 +38,6 @@ export class SearchService {
         'Authorization': localStorage.getItem("token")
       })
     };
-    return this.http.get(this.base_url + "entreprises/", httpOptions)
+    return this.http.get(this.base_url + "entreprises/getEntreprises", httpOptions)
   }
 }
