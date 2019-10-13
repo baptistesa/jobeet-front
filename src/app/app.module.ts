@@ -26,6 +26,7 @@ import { MatchComponent } from './match/match.component';
 import { MonEntrepriseComponent } from './mon-entreprise/mon-entreprise.component';
 import { OffreComponent } from './offre/offre.component';
 import { MesoffresComponent } from './mesoffres/mesoffres.component';
+import { SearchComponent } from './search/search.component';
 
 
 
@@ -44,7 +45,8 @@ import { MesoffresComponent } from './mesoffres/mesoffres.component';
     MatchComponent,
     MonEntrepriseComponent,
     OffreComponent,
-    MesoffresComponent
+    MesoffresComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
