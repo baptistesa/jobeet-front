@@ -1,0 +1,73 @@
+<div *ngIf="user && user.id_entreprise != null && entreprise">
+    <div class="main_container">
+        <h1 class="title">
+            Mon entreprise
+        </h1>
+        <p class="subtitle">Consulter et modifier les informations de mon entreprise</p>
+
+        <mat-tab-group style="margin-top: 3%;">
+            <mat-tab label="Description">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div>
+                            <div class="row">
+                                <div class="picture3 col-lg-4"
+                                    [style.background-image]="getBackground('https://www.margo-group.com/wp-content/uploads/2019/09/EPITA.png')">
+                                </div>
+                                <div class="informations col-lg-7" style="margin-left: 3%; height: 21rem;">
+                                    <h1 class="section_title">Informations de l'entreprise</h1>
+                                    <p class="title_entry">Nom</p>
+                                    <p class="subtitle_entry">{{entreprise.name}}</p>
+                                    <p class="title_entry">Description</p>
+                                    <p class="subtitle_entry">{{entreprise.description}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </mat-tab>
+
+            <mat-tab label="Nos offres">
+                <h1 class="section_title">Offres disponibles</h1>
+                <p>Pas d'offre disponible actuellement</p>
+            </mat-tab>
+
+        </mat-tab-group>
+    </div>
+</div>
+<div *ngIf="user && user.id_entreprise == null">
+    <div class="main_container">
+    <h1 class="title">
+        Ajouter une entreprises
+    </h1>
+    <p class="subtitle">Rechercher une entreprise</p>
+    <div>
+        <div class="company" *ngFor="let entreprise of entreprises" (click)="sendtoProfil(entreprise)">
+            <div class="picture2"
+                [style.background-image]="getBackground('https://upload.wikimedia.org/wikipedia/fr/d/d8/Epita.png')">
+            </div>
+            <p>{{ entreprise.name }}</p>
+        </div>
+    </div>
+    <div class="main_container">
+        <h1 class="title">
+            Créer une entreprise
+        </h1>
+        <p class="subtitle">Créer le profil de mon entreprise</p>
+
+        <div class="inputs">
+            <mat-form-field style="width: 20rem">
+                <input matInput name="add_entreprise.name" [(ngModel)]="add_entreprise.name">
+                <mat-placeholder class="placeholder">Nom de l'entreprise</mat-placeholder>
+            </mat-form-field>
+            <br>
+            <mat-form-field style="width: 30rem">
+                <textarea rows="10" colds="500" name="add_entreprise.description" matInput
+                    [(ngModel)]="add_entreprise.description"></textarea>
+                <mat-placeholder class="placeholder">Description de l'entreprise</mat-placeholder>
+            </mat-form-field>
+
+
+        </div>
+    </div>
+</div>
