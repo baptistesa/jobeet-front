@@ -38,7 +38,7 @@ export class MesoffresComponent implements OnInit {
 
     this.offre.title = this.offre.title;
     this.offre.description = this.offre.description;
-    this.offre.id_entreprise = this.offre.id_entreprise;
+    this.offre.id_entreprise = this.user.id_entreprise;
     this.offre.id_author = this.user.id;
 
     this.http.addOffre(this.offre)
