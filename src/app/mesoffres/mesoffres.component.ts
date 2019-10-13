@@ -13,9 +13,20 @@ export class MesoffresComponent implements OnInit {
 
   display_form = false;
   mesoffres;
+  user;
+
+  // Fields
+  offre = {
+    title : "",
+    description : "",
+    id_entreprise : "",
+    id_author : ""
+  }
 
   constructor(private nav: NavbarService, private _sanitizer: DomSanitizer, private http: MesoffresService, private router: Router) {
-    this.addOffre();
+    this.getMesoffres();
+    //this.addOffre();
+    this.user = JSON.parse(localStorage.getItem("user"));
    }
 
   ngOnInit() {
@@ -24,5 +35,31 @@ export class MesoffresComponent implements OnInit {
 
   addOffre() {
     this.display_form = true;
+
+    this.offre.title = this.offre.title;
+    this.offre.description = this.offre.description;
+    this.offre.id_entreprise = this.offre.id_entreprise;
+    this.offre.id_author = this.user.id;
+
+    this.http.addOffre(this.offre)
+    .subscribe(data => {
+      this.getMesoffres();
+      alert("Offre ajoutée avec succès");
+    }, err => {
+      console.log("error == ", err)
+    })
+  }
+
+  getMesoffres() {
+    this.http.getMesoffres()
+      .subscribe(data => {
+        //console.log("test offres : " + JSON.stringify(data));
+        this.mesoffres = JSON.parse(JSON.stringify(data)).data;
+      })
+  }
+
+  sendtoProfil(offre) {
+    localStorage.setItem("offre", JSON.stringify(offre));
+    this.router.navigate(["/offre"]);
   }
 }
