@@ -108,6 +108,10 @@
                     </mat-error>
                 </mat-form-field>
 
+                <br>
+                <mat-checkbox [(ngModel)]="is_recruteur">Je suis un recruteur</mat-checkbox>
+
+
                 <button mat-button class="connect_button" (click)="signUp()">S'inscrire</button>
                 <mat-spinner class="spinner" *ngIf="displaySpinner"></mat-spinner>
             </div>

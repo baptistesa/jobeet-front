@@ -1,12 +1,12 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <div class="main_container">
     <h1 class="title">
-        Offres
+        Offres d'emploi
     </h1>
     <p class="subtitle">Découvrir les offres d'emploi disponibles</p>
 
     <mat-tab-group style="margin-top: 3%;">
-        <mat-tab label="Mes Offres">
+        <mat-tab label="Les Offres">
             <p> </p>   
             <div class="infos col-lg-12" *ngFor="let offre of offres">
                     <div class="card">
@@ -15,18 +15,11 @@
                                 <div class="description">
                                     <p class="card-text">{{offre.description}}</p>
                                 </div>
-                                <a href="#" class="card-link">En savoir plus</a>
+                                <button (click)="sendtoProfil(offre)" class="btn btn-link">En savoir plus</button>
                             </div>
                         </div>
                 </div> 
             
-             
-
-
-        </mat-tab>
-        <mat-tab label="Paramètres">
-            <h1 class="section_title">Mes paramètres</h1>
-            <p>...</p>
         </mat-tab>
     </mat-tab-group>
 </div>
