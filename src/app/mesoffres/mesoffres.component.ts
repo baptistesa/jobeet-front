@@ -47,6 +47,7 @@ export class MesoffresComponent implements OnInit {
     this.http.addOffre(this.offre)
     .subscribe(data => {
       this.getMesoffres();
+      this.addCompetence(JSON.parse(JSON.stringify(data)).data[0].id);
       alert("Offre ajoutée avec succès");
     }, err => {
       console.log("error == ", err)
@@ -69,6 +70,17 @@ export class MesoffresComponent implements OnInit {
   onKeydown(event) {
     if (event.key == "Enter") {
       this.competences.push(this.competence);
+      this.competence = "";
+    }
+  }
+
+  addCompetence(id) {
+    for (let competence of this.competences) {
+      let body = {title : competence, id_offre : id};
+      this.http.addCompetence(body)
+      .subscribe(data => {
+
+      })
     }
   }
 }

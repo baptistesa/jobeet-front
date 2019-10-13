@@ -6,11 +6,12 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class MesoffresService {
   base_url = "http://localhost:3000/offres/";
+  base_url2 = "http://localhost:3000/competences/";
 
   constructor(private http: HttpClient) { }
 
   getMesoffres() {
-    return this.http.get(this.base_url + "getOffres/")
+    return this.http.get(this.base_url + "getOffres/");
   }
 
   addOffre(body) {
@@ -20,5 +21,14 @@ export class MesoffresService {
       })
     };
     return this.http.post(this.base_url + "addOffre", body, httpOptions);
+  }
+
+  addCompetence(body) {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': localStorage.getItem("token")
+      })
+    };
+    return this.http.post(this.base_url2 + "addToOffre", body, httpOptions);
   }
 }

@@ -41,7 +41,7 @@
 
                                 <div>
                                     <div *ngFor="let competence of competences" class="competence" (click)="deleteCompetence(competence.id)">
-                                        <p>{{ competence.title }}</p>
+                                        <p>{{competence}}</p>
                                     </div>
                                     <div class="competence">
                                             <input (keydown)="onKeydown($event)" matInput name="position" [(ngModel)]="competence" placeholder="Ajouter une compétence">
