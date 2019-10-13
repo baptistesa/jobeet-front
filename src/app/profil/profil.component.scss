@@ -97,3 +97,20 @@ mat-focused .mat-form-field-label {
 .subtitle_entry {
   margin-top: 0;
 }
+
+.competence {
+  min-width: 60px;
+  background: #e50051;
+  color: white;
+  display: inline-block;
+  text-align: center;
+  font-family: 'locator-regular';
+  border-radius: 20px;
+  padding: 5px;
+  margin-left: 2%;
+  margin-top: 5px;
+
+  p {
+    margin: 0;
+  }
+}

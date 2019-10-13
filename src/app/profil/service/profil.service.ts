@@ -49,4 +49,24 @@ export class ProfilService {
     };
     return this.http.post(this.base_url + "experience/add", body, httpOptions);
   }
+
+  // Add competence
+  addCompetence(body) {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': localStorage.getItem("token")
+      })
+    };
+    return this.http.post(this.base_url + "competences/addToUser", body, httpOptions);
+  }
+
+  // Delete competence
+  deleteCompetence(id) {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': localStorage.getItem("token")
+      })
+    };
+    return this.http.delete(this.base_url + "competences/delete/" + id, httpOptions);
+  }
 }

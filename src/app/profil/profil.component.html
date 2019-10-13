@@ -41,7 +41,7 @@
                                 {{ cv.cv.description }}</p>
                             <p *ngIf="(!cv || cv == null || !cv.cv.description || cv.cv.description == '') && !display_form_description"
                                 style="margin-top: 3%"><i>Ajoutez
-                                    une description pour vous présenter aux recruteurs !</i></p>
+                                    une description pour vous présenter !</i></p>
 
                             <div *ngIf="display_form_description" class="form">
 
@@ -62,6 +62,16 @@
 
                         <h1 class="section_title">Mes compétences</h1>
 
+                        <div *ngIf="cv && cv.competences">
+                            <div *ngFor="let competence of cv.competences" class="competence" (click)="deleteCompetence(competence.id)">
+                                <p>{{ competence.title }}</p>
+                            </div>
+                            <div class="competence">
+                                    <input (keydown)="onKeydown($event)" matInput name="position" [(ngModel)]="competence" placeholder="Ajouter une compétence">
+                                
+                            </div>
+                        </div>
+
                     </div>
                 </div>
 
@@ -73,14 +83,16 @@
                         <div class="infos col-lg-12">
                             <p *ngIf="!cv || !cv.experiences || cv.experiences.length == 0"><i>Aucune expérience
                                     ajoutée</i></p>
-                            <div *ngFor="let experience of cv.experiences; let i = index;">
-                                <h1>{{ experience.position }}</h1>
-                                <h2 style="margin-bottom: 0">{{ experience.company }}</h2>
-                                <span
-                                    style="color: gray; margin-top: 0; font-size: 10px;">{{ experience.start_date | date: 'dd/MM/yyyy' }}
-                                    - {{ experience.end_date | date: 'dd/MM/yyyy'}}</span>
-                                <p style="margin-top: 3%">{{ experience.description }}</p>
-                                <hr *ngIf="i != cv.experiences.length - 1">
+                            <div *ngIf="cv">
+                                <div *ngFor="let experience of cv.experiences; let i = index;">
+                                    <h1>{{ experience.position }}</h1>
+                                    <h2 style="margin-bottom: 0">{{ experience.company }}</h2>
+                                    <span
+                                        style="color: gray; margin-top: 0; font-size: 10px;">{{ experience.start_date | date: 'dd/MM/yyyy' }}
+                                        - {{ experience.end_date | date: 'dd/MM/yyyy'}}</span>
+                                    <p style="margin-top: 3%">{{ experience.description }}</p>
+                                    <hr *ngIf="i != cv.experiences.length - 1">
+                                </div>
                             </div>
 
 

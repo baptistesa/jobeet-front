@@ -10,7 +10,7 @@ import { DatePipe } from '@angular/common'
   templateUrl: './profil.component.html',
   styleUrls: ['./profil.component.scss'],
   encapsulation: ViewEncapsulation.None,
-  providers:[DatePipe]
+  providers: [DatePipe]
 })
 export class ProfilComponent implements OnInit {
 
@@ -19,25 +19,27 @@ export class ProfilComponent implements OnInit {
   display_form_formation = false;
   user: any;
   cv: any;
+  competences_all;
 
   // Fields
   description = "";
   formation = {
-    cv_id : "",
-    title : "",
-    school : "",
-    start_date : "",
-    end_date : "",
-    description : ""
+    cv_id: "",
+    title: "",
+    school: "",
+    start_date: "",
+    end_date: "",
+    description: ""
   }
   experience = {
-    position : "",
-    company  : "",
-    description : "",
-    start_date : "",
-    end_date : "",
-    cv_id : ""
+    position: "",
+    company: "",
+    description: "",
+    start_date: "",
+    end_date: "",
+    cv_id: ""
   }
+  competence : string;
 
   constructor(private nav: NavbarService, private _sanitizer: DomSanitizer, private http: ProfilService, public datepipe: DatePipe) {
     this.user = JSON.parse(localStorage.getItem("user"));
@@ -63,7 +65,6 @@ export class ProfilComponent implements OnInit {
     this.http.addExperience(this.experience)
       .subscribe(data => {
         this.getCV();
-        alert("Expérience ajoutée avec succès");
       }, err => {
         console.log("error == ", err)
       })
@@ -93,7 +94,6 @@ export class ProfilComponent implements OnInit {
     this.http.updateDescription(this.description)
       .subscribe(data => {
         this.getCV();
-        alert('Description modifiée avec succès !')
       });
   }
 
@@ -111,10 +111,31 @@ export class ProfilComponent implements OnInit {
     this.http.addFormation(this.formation)
       .subscribe(data => {
         this.getCV();
-        alert('Formation ajoutée avec succès !')
       }, err => {
         console.log("error = ", err);
       })
   }
+
+  // Add Competence on key down
+  onKeydown(event) {
+    let body = {
+      title : this.competence
+    }
+    if (event.key === "Enter") {
+      this.http.addCompetence(body)
+        .subscribe(data => {
+          this.getCV();
+          this.competence = "";
+        })
+    }
+  }
+
+  // Delete competence
+  deleteCompetence(id) {
+    this.http.deleteCompetence(id)
+      .subscribe(data => {
+        this.getCV();
+      })
+  } 
 
 }
