@@ -8,6 +8,8 @@ export class MonEntrepriseService {
 
   base_url = "http://localhost:3000/entreprises/";
   
+  base_url2 = "http://localhost:3000/cv/";
+  
   constructor(private http: HttpClient) {
 
   }
@@ -27,7 +29,7 @@ export class MonEntrepriseService {
         'Authorization': localStorage.getItem("token")
       })
     };
-    return this.http.post(this.base_url +"addEntreprise/", body)
+    return this.http.post(this.base_url +"addEntreprise/", body, httpOptions)
   }
 
   getEntreprises() {
@@ -37,5 +39,14 @@ export class MonEntrepriseService {
       })
     };
     return this.http.get(this.base_url + "getEntreprises/");
+  }
+
+  modifyIdEntreprise(body) {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': localStorage.getItem("token")
+      })
+    };
+    return this.http.put(this.base_url2 + "modifyIdEntreprise/", body, httpOptions)
   }
 }
