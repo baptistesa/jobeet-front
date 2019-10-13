@@ -49,7 +49,6 @@ export class MonEntrepriseComponent implements OnInit {
     this.http.getEntreprise(id)
       .subscribe(data => {
         this.entreprise = JSON.parse(JSON.stringify(data)).data[0];
-        console.log("entreprise : ", this.entreprise)
       })
   }
 

@@ -20,7 +20,6 @@ export class NavigationComponent implements AfterViewInit {
   ngAfterViewInit() {
     this.user = JSON.parse(localStorage.getItem("user"));
     this.nav.visible.subscribe(data => {
-      console.log("visible = ", data)
       if (data && data == "true") {
         this.show_side = true;
         this.cdRef.detectChanges();
@@ -32,9 +31,7 @@ export class NavigationComponent implements AfterViewInit {
     })
     this.nav.user.subscribe(user => {
       if (user) {
-        console.log("user = ", user)
         this.user = user;
-        console.log(user.role)
         this.cdRef.detectChanges();
       }
     })
