@@ -23,6 +23,9 @@ export class MesoffresComponent implements OnInit {
     id_author : ""
   }
 
+  competence;
+  competences = [];
+
   constructor(private nav: NavbarService, private _sanitizer: DomSanitizer, private http: MesoffresService, private router: Router) {
     this.getMesoffres();
     //this.addOffre();
@@ -61,5 +64,11 @@ export class MesoffresComponent implements OnInit {
   sendtoProfil(offre) {
     localStorage.setItem("offre", JSON.stringify(offre));
     this.router.navigate(["/offre"]);
+  }
+
+  onKeydown(event) {
+    if (event.key == "Enter") {
+      this.competences.push(this.competence);
+    }
   }
 }
