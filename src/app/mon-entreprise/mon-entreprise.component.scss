@@ -125,3 +125,27 @@
   border-top-left-radius: 20px !important;
   border-bottom-right-radius: 20px !important;
 }
+
+.offre1 {
+    background-color: white;
+    box-shadow: 0 4px 16px 0 rgba(50, 56, 63, 0.08);
+    width: 100%;
+    border-radius: 8px;
+    margin-top: 3%;
+    padding: 3%;
+  
+    h1 {
+      font-family: "locator-regular";
+      font-size: 20px;
+    }
+  
+    h2 {   
+      font-family: "locator-regular";
+      color: gray;
+      font-size: 15px;
+    }
+  
+    p {
+      font-family: "locator-regular";
+    }
+  }

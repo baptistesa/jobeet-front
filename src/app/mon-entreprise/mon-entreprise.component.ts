@@ -17,6 +17,7 @@ export class MonEntrepriseComponent implements OnInit {
   display_form = false;
   entreprise: any;
   entreprises: any;
+  offres: any;
   add_entreprise = {
     name: "",
     description: ""
@@ -25,7 +26,10 @@ export class MonEntrepriseComponent implements OnInit {
   constructor(public router: Router, private nav: NavbarService, private _sanitizer: DomSanitizer, private http: MonEntrepriseService) {
     this.user = JSON.parse(localStorage.getItem("user"));
     if (this.user.id_entreprise != null)
+    {
       this.getEntreprise(this.user.id_entreprise);
+      this.getEntrepriseOffres(this.user.id_entreprise);
+    }
     else
       this.getEntreprises();
   }
@@ -70,6 +74,18 @@ export class MonEntrepriseComponent implements OnInit {
     this.http.modifyIdEntreprise(body)
       .subscribe();
     //refresh user !!!!
+  }
+  
+  getEntrepriseOffres(id) {
+    this.http.getEntrepriseOffres(id)
+      .subscribe(data => {
+        this.offres = JSON.parse(JSON.stringify(data)).data;
+      })
+  }
+
+  sendtoOffre(offre) {
+    localStorage.setItem("offre", JSON.stringify(offre));
+    this.router.navigate(["/offre"]);
   }
 
   getBackground(url) {

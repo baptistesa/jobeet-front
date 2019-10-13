@@ -49,4 +49,13 @@ export class MonEntrepriseService {
     };
     return this.http.put(this.base_url2 + "modifyIdEntreprise/", body, httpOptions)
   }
+
+  getEntrepriseOffres(id) {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': localStorage.getItem("token")
+      })
+    };
+    return this.http.get(this.base_url + "getEntrepriseOffres/" + id, httpOptions);
+  }
 }
