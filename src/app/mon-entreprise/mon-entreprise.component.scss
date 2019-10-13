@@ -91,3 +91,61 @@
 .mat-focused .placeholder {
   color: #e50051;
 }
+
+.company {
+    height:11rem;
+    width: 10rem;
+    display: inline-block;
+    margin-left: 3%;
+    border-radius: 8px;
+    margin-top: 1rem;
+    box-shadow: 0 4px 16px 0 rgba(50, 56, 63, 0.08);
+    .picture2 {
+        height:9rem;
+        width: 10rem;
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat; 
+    }
+    p {
+        color: gray;
+        font-size: 16px;
+        font-family: "locator-regular";
+        text-align: center;
+        font-weight: 800;
+    }
+}
+
+.connect_button {
+  font-family: "locator-regular";
+  background: #e50051;
+  color: white;
+  margin-top: 5% !important;
+  width: 50%;
+  border-top-left-radius: 20px !important;
+  border-bottom-right-radius: 20px !important;
+}
+
+.offre1 {
+    background-color: white;
+    box-shadow: 0 4px 16px 0 rgba(50, 56, 63, 0.08);
+    width: 100%;
+    border-radius: 8px;
+    margin-top: 3%;
+    padding: 3%;
+  
+    h1 {
+      font-family: "locator-regular";
+      font-size: 20px;
+    }
+  
+    h2 {   
+      font-family: "locator-regular";
+      color: gray;
+      font-size: 15px;
+    }
+  
+    p {
+      font-family: "locator-regular";
+    }
+  }
