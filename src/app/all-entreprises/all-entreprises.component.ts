@@ -7,7 +7,8 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-all-entreprises',
   templateUrl: './all-entreprises.component.html',
-  styleUrls: ['./all-entreprises.component.scss']
+  styleUrls: ['./all-entreprises.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 
 export class AllEntreprisesComponent implements OnInit {
@@ -35,7 +36,6 @@ export class AllEntreprisesComponent implements OnInit {
     this.http.getEntreprises()
       .subscribe(data => {
         this.entreprises = JSON.parse(JSON.stringify(data)).data;
-        console.log("Test : " + this.entreprises)
       })
       
   }
