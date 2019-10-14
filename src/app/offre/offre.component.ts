@@ -17,6 +17,12 @@ export class OffreComponent implements OnInit {
   entreprise;
   competences;
   user;
+  match = {
+    id_user : null,
+    id_recruteur : null,
+    id_offre : null,
+    is_valid : false
+  }
 
   constructor(private nav: NavbarService, private _sanitizer: DomSanitizer, private http: OffreService) {
     this.offre = JSON.parse(localStorage.getItem("offre"));
@@ -55,6 +61,23 @@ export class OffreComponent implements OnInit {
         this.user = JSON.parse(JSON.stringify(data)).data[0];
         localStorage.setItem("user", JSON.stringify(this.user));
       })
+  }
+
+  addMatch() {
+    this.display_form = true;
+
+    this.match.id_user = this.user.id;
+    this.match.id_recruteur = this.offre.id_author;
+    this.match.id_offre = this.offre.id;
+    this.match.is_valid = false;
+    this.http.addMatch(this.match)
+    .subscribe(data => {
+      alert("Vous avez postulé avec succès");
+    }, err => {
+      console.log("error == ", err)
+    });
+    console.log(this.match);
+
   }
 
 }
