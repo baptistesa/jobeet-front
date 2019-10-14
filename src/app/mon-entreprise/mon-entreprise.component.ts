@@ -94,7 +94,7 @@ export class MonEntrepriseComponent implements OnInit {
   getUser() {
     this.http.getUser(this.user.id)
       .subscribe(data => {
-        this.user = JSON.parse(JSON.stringify(data)).data;
+        this.user = JSON.parse(JSON.stringify(data)).data[0];
         localStorage.setItem("user", JSON.stringify(this.user));
       })
   }
