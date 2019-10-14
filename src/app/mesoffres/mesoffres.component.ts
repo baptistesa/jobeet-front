@@ -23,6 +23,9 @@ export class MesoffresComponent implements OnInit {
     id_author : ""
   }
 
+  competence;
+  competences = [];
+
   constructor(private nav: NavbarService, private _sanitizer: DomSanitizer, private http: MesoffresService, private router: Router) {
     this.getMesoffres();
     //this.addOffre();
@@ -44,6 +47,7 @@ export class MesoffresComponent implements OnInit {
     this.http.addOffre(this.offre)
     .subscribe(data => {
       this.getMesoffres();
+      this.addCompetence(JSON.parse(JSON.stringify(data)).data[0].id);
       alert("Offre ajoutée avec succès");
     }, err => {
       console.log("error == ", err)
@@ -61,5 +65,22 @@ export class MesoffresComponent implements OnInit {
   sendtoProfil(offre) {
     localStorage.setItem("offre", JSON.stringify(offre));
     this.router.navigate(["/offre"]);
+  }
+
+  onKeydown(event) {
+    if (event.key == "Enter") {
+      this.competences.push(this.competence);
+      this.competence = "";
+    }
+  }
+
+  addCompetence(id) {
+    for (let competence of this.competences) {
+      let body = {title : competence, id_offre : id};
+      this.http.addCompetence(body)
+      .subscribe(data => {
+
+      })
+    }
   }
 }
