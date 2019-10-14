@@ -10,6 +10,8 @@ export class MonEntrepriseService {
   
   base_url2 = "http://localhost:3000/cv/";
   
+  base_url3 = "http://localhost:3000/users/";
+  
   constructor(private http: HttpClient) {
 
   }
@@ -59,5 +61,12 @@ export class MonEntrepriseService {
     return this.http.get(this.base_url + "getEntrepriseOffres/" + id, httpOptions);
   }
 
-  
+  getUser(id){
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': localStorage.getItem("token")
+      })
+    }
+    return this.http.get(this.base_url3 + "getUser/", httpOptions);
+  }
 }

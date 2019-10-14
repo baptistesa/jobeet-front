@@ -90,4 +90,12 @@ export class MonEntrepriseComponent implements OnInit {
   getBackground(url) {
     return this._sanitizer.bypassSecurityTrustStyle(`url(${url})`);
   }
+
+  getUser() {
+    this.http.getUser(this.user.id)
+      .subscribe(data => {
+        this.user = JSON.parse(JSON.stringify(data)).data;
+        localStorage.setItem("user", JSON.stringify(this.user));
+      })
+  }
 }
