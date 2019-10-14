@@ -16,11 +16,14 @@ export class OffreComponent implements OnInit {
   offre;
   entreprise;
   competences;
+  user;
 
   constructor(private nav: NavbarService, private _sanitizer: DomSanitizer, private http: OffreService) {
     this.offre = JSON.parse(localStorage.getItem("offre"));
     this.getCompetences(this.offre.id)
-    console.log("c'est mooiii : ", this.offre)
+    this.user = JSON.parse(localStorage.getItem("user"));
+    this.getUser();
+    console.log(" roooooooole :" + this.user.role);
     if (this.offre.id_entreprise != null)
       this.getEntreprise(this.offre.id_entreprise);
     else
@@ -43,6 +46,14 @@ export class OffreComponent implements OnInit {
       .subscribe(data => {
         this.competences = JSON.parse(JSON.stringify(data)).data;
         console.log(this.competences)
+      })
+  }
+
+  getUser() {
+    this.http.getUser(this.user.id)
+      .subscribe(data => {
+        this.user = JSON.parse(JSON.stringify(data)).data;
+        localStorage.setItem("user", JSON.stringify(this.user));
       })
   }
 
