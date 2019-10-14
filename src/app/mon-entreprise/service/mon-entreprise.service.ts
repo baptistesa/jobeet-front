@@ -67,6 +67,6 @@ export class MonEntrepriseService {
         'Authorization': localStorage.getItem("token")
       })
     }
-    return this.http.get(this.base_url3 + "getUser/", httpOptions);
+    return this.http.get(this.base_url3 + "getUser/" + id, httpOptions);
   }
 }

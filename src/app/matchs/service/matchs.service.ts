@@ -55,6 +55,6 @@ export class MatchsService {
         'Authorization': localStorage.getItem("token")
       })
     }
-    return this.http.get(this.base_url2 + "getUser/", httpOptions);
+    return this.http.get(this.base_url2 + "getUser/" + id, httpOptions);
   }
 }
