@@ -1,22 +1,39 @@
 <div class="main_container">
-        <h1 class="title">
-            Mes matchs
-        </h1>
-        <p class="subtitle">Consulter l'ensemble de mes matchs</p>
+    <h1 class="title">
+        Mes matchs
+    </h1>
+    <p class="subtitle">Consulter l'ensemble de mes matchs</p>
 
-        <div class="row match col-lg-12">
-            <div class="match-info col-lg-10">
-            <h1>Nom du candidat</h1>
-            <h2>Joffrey MARC</h2>
-            <h1>Id de l'offre</h1>
-            <h2>Offre : 08101970</h2>
-            </div>
-            <div class="validate col-lg-1">
-                <mat-icon style="color: green">check_circle_outline</mat-icon>
-            </div>
-            <div class="cancel col-lg-1">
-                <mat-icon style="color: red">highlight_off</mat-icon>
+    <div *ngIf="user && user.role == 1">
+        <div *ngFor="let match of matchs">
+            <div class="row match col-lg-12">
+                <div class="match-info col-lg-10">
+                    <h1>Nom du candidat</h1>
+                    <h2>Joffrey MARC</h2>
+                    <h1>Id de l'offre</h1>
+                    <h2>Offre : 08101970</h2>
+                </div>
+                <div class="validate col-lg-1">
+                    <mat-icon style="color: green">check_circle_outline</mat-icon>
+                </div>
+                <div class="cancel col-lg-1">
+                    <mat-icon style="color: red">highlight_off</mat-icon>
+                </div>
             </div>
         </div>
+    </div>
+    
+    <div *ngIf="user && user.role == 0">
+        <div *ngFor="let match of matchs">
+            <div class="row match col-lg-12">
+                <div class="match-info col-lg-10">
+                    <h1>Nom de l'entreprise</h1>
+                    <h2>Epita</h2>
+                    <h1>Id de l'offre</h1>
+                    <h2>Offre : 08101970</h2>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </div>

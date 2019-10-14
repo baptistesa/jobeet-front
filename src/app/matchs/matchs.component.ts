@@ -1,8 +1,8 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { NavbarService } from '../navigation/service/navbar.service';
 import { DomSanitizer } from '@angular/platform-browser';
-import { OffresService } from '../offres/service/offres.service';
 import { Router } from '@angular/router';
+import { MatchsService } from './service/matchs.service';
 
 @Component({
   selector: 'app-matchs',
@@ -12,10 +12,48 @@ import { Router } from '@angular/router';
 })
 export class MatchsComponent implements OnInit {
 
-  constructor(private nav: NavbarService, private _sanitizer: DomSanitizer, private http: OffresService, private router: Router) { }
+  user: any;
+  matchs: any;
+  candidat: any;
+
+  constructor(private nav: NavbarService, private _sanitizer: DomSanitizer, private http: MatchsService, private router: Router) { 
+    
+    this.user = JSON.parse(localStorage.getItem("user"));
+    this.getUser();
+    if (this.user.role == 0)
+      this.getUserMatch();
+    else
+      this.getRecruteurMatch();
+  }
 
   ngOnInit() {
     this.nav.show();
   }
 
+  acceptMatch(id) {
+    this.http.acceptMatch(id)
+      .subscribe();
+  }
+
+  getUserMatch() {
+    this.http.getUserMatch()
+      .subscribe(data => {
+        this.matchs = JSON.parse(JSON.stringify(data)).data;
+      })
+  }
+
+  getRecruteurMatch() {
+    this.http.getRecruteurMatch()
+      .subscribe(data => {
+        this.matchs = JSON.parse(JSON.stringify(data)).data;
+      })
+  }
+
+  getUser() {
+    this.http.getUser(this.user.id)
+      .subscribe(data => {
+        this.user = JSON.parse(JSON.stringify(data)).data;
+        localStorage.setItem("user", JSON.stringify(this.user));
+      })
+  }
 }
