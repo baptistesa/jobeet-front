@@ -15,7 +15,7 @@
                         <div class="row">
                             <div class="infos col-lg-4"
                                 style="margin-left: 3%;height: 21rem; background-size: cover; background-position: center"
-                                [style.background-image]="getBackground(user.picture_path)">
+                                [style.background-image]="getBackground(user.picture_path)" (click)="nextStep()">
 
                             </div>
                             <div class="infos col-lg-7" style="margin-left: 3%; height: 21rem;">
@@ -31,6 +31,10 @@
                                 <p class="title_entry">Numéro de téléphone</p>
                                 <p class="subtitle_entry">{{ user.phone }}</p>
                             </div>
+                        </div>
+
+                        <div ngfSelect multiple="1" class="mat-raised-button" style="margin-top: 3%;">
+                            <input type="file" id="file" (change)="handleFile($event.target.files)">
                         </div>
                     </div>
 

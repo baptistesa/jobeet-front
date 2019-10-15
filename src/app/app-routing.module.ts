@@ -15,6 +15,7 @@ import { MonEntrepriseComponent } from './mon-entreprise/mon-entreprise.componen
 import { SearchComponent } from './search/search.component';
 import { UserComponent } from './user/user.component';
 import { ChatRoomComponent } from './chat-room/chat-room.component';
+import { AllUsersComponent } from './all-users/all-users.component';
 
 
 
@@ -32,7 +33,8 @@ const routes: Routes = [
   { path: 'matchs', component: MatchsComponent, data: { title: 'Matchs' }, canActivate: [AuthGuard] },
   { path: 'search', component: SearchComponent, data: { title: 'Search' }, canActivate: [AuthGuard] },
   { path: 'user/:id', component: UserComponent, data: { title: 'User' }, canActivate: [AuthGuard] },
-  { path: 'room', component: ChatRoomComponent, data: { title: 'Chat' }, canActivate: [AuthGuard] }
+  { path: 'room', component: ChatRoomComponent, data: { title: 'Chat' }, canActivate: [AuthGuard] },
+  { path: 'all', component: AllUsersComponent, data: { title: 'Chat' }, canActivate: [AuthGuard] }
 ];
 
 @NgModule({

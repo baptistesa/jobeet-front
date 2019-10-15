@@ -2,7 +2,7 @@
     <h1 class="title">
         Profil
     </h1>
-    <p class="subtitle">Découvrez les compétences de untel</p>
+    <p class="subtitle" *ngIf="user">Découvrez les compétences de {{ user.name }} {{ user.last_name }}</p>
 
 
     <div class="row">
