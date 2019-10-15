@@ -28,7 +28,6 @@ export class UserComponent implements OnInit{
     this.http.getUser(id)
       .subscribe(data => {
         this.user = JSON.parse(JSON.stringify(data)).data[0];
-        localStorage.setItem("user", JSON.stringify(this.user));
       })
   }
 

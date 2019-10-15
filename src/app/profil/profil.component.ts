@@ -39,10 +39,15 @@ export class ProfilComponent implements OnInit {
     end_date: "",
     cv_id: ""
   }
-  competence : string;
+  competence: string;
+
+
+
+  fileToUpload: File = null;
 
   constructor(private nav: NavbarService, private _sanitizer: DomSanitizer, private http: ProfilService, public datepipe: DatePipe) {
-    this.user = JSON.parse(localStorage.getItem("user"));
+    this.user = JSON.parse(localStorage.getItem("user"))
+    this.getUser(this.user.id)
     this.getCV();
   }
 
@@ -111,15 +116,13 @@ export class ProfilComponent implements OnInit {
     this.http.addFormation(this.formation)
       .subscribe(data => {
         this.getCV();
-      }, err => {
-        console.log("error = ", err);
       })
   }
 
   // Add Competence on key down
   onKeydown(event) {
     let body = {
-      title : this.competence
+      title: this.competence
     }
     if (event.key === "Enter") {
       this.http.addCompetence(body)
@@ -151,6 +154,26 @@ export class ProfilComponent implements OnInit {
     this.http.deleteExperience(id)
       .subscribe(data => {
         this.getCV();
+      })
+  }
+
+  handleFile(files: FileList) {
+    this.fileToUpload = files.item(0);
+    this.uploadFile();
+  }
+
+  uploadFile() {
+    this.http.uploadPic(this.fileToUpload).subscribe(data => {
+      this.getCV();
+      this.getUser(JSON.parse(localStorage.getItem("user")).id);
+    });
+  }
+
+  getUser(id) {
+    this.http.getUser(id)
+      .subscribe(data => {
+        this.user = JSON.parse(JSON.stringify(data)).data[0]
+        this.nav.setUser(this.user)
       })
   }
 }

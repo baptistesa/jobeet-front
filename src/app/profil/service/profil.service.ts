@@ -89,4 +89,26 @@ export class ProfilService {
     };
     return this.http.delete(this.base_url + "experience/delete/" + id, httpOptions);
   }
+
+
+  // Upload picture
+  uploadPic(fileToUpload: File) {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': localStorage.getItem("token")
+      })
+    };
+    const formData: FormData = new FormData();
+    formData.append('picture', fileToUpload, fileToUpload.name);
+    return this.http.post(this.base_url + "users/upload", formData, httpOptions);
+  }
+
+  getUser(id){
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': localStorage.getItem("token")
+      })
+    }
+    return this.http.get(this.base_url + "users/getUser/" + id, httpOptions);
+  }
 }

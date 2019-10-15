@@ -20,11 +20,14 @@
             <a mat-list-item routerLink="/mesoffres" style="font-family: 'locator-regular'" *ngIf="user.role == 1">
                 <mat-icon style="color: #e50051">date_range</mat-icon>Mes offres d'emploi
             </a>
-            <a mat-list-item routerLink="/entreprises" style="font-family: 'locator-regular'">
+            <a mat-list-item routerLink="/entreprises" style="font-family: 'locator-regular'" *ngIf="user.role == 0">
                 <mat-icon style="color: #e50051">apartment</mat-icon>Entreprises
             </a>
             <a mat-list-item routerLink="/monentreprise" style="font-family: 'locator-regular'" *ngIf="user.role == 1">
                 <mat-icon style="color: #e50051">apartment</mat-icon>Mon entreprise
+            </a>
+            <a mat-list-item routerLink="/all" style="font-family: 'locator-regular'" *ngIf="user.role == 1">
+                <mat-icon style="color: #e50051">contacts</mat-icon>Tous les candidats
             </a>
             <a mat-list-item routerLink="/chat" style="font-family: 'locator-regular'">
                 <mat-icon style="color: #e50051">forum</mat-icon>Messagerie

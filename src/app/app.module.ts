@@ -29,7 +29,8 @@ import { SearchComponent } from './search/search.component';
 import { MatchsComponent } from './matchs/matchs.component';
 import { UserComponent } from './user/user.component';
 import { ChatRoomComponent } from './chat-room/chat-room.component';
-import { VIEWPORT_RULER_PROVIDER } from '@angular/cdk/scrolling'
+import { VIEWPORT_RULER_PROVIDER } from '@angular/cdk/scrolling';
+import { AllUsersComponent } from './all-users/all-users.component'
 
 
 
@@ -51,7 +52,8 @@ import { VIEWPORT_RULER_PROVIDER } from '@angular/cdk/scrolling'
     SearchComponent,
     MatchsComponent,
     UserComponent,
-    ChatRoomComponent
+    ChatRoomComponent,
+    AllUsersComponent
   ],
   imports: [
     BrowserModule,

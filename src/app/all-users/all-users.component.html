@@ -1,0 +1,19 @@
+<div class="main_container">
+    <h1 class="title">
+        Tous les candidats
+    </h1>
+    <p class="subtitle">Trouvez le candidat idéal</p>
+
+
+
+    <div class="users">
+        <div *ngFor="let user of users">
+            <div *ngIf="user.role == 0" class="one_user" (click)="goToUser(user.id)">
+                <div class="picture_profil" [style.background-image]="getBackground(user.picture_path)"></div>
+                <p>{{ user.name }}</p>
+                <p>{{ user.last_name }}</p>
+            </div>
+        </div>
+    </div>
+
+</div>
