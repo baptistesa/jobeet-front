@@ -7,26 +7,28 @@
     <div *ngIf="user && user.role == 1">
         <div *ngFor="let match of matchs">
             <div class="row match col-lg-12">
-                <div class="match-info col-lg-10">
+                <div class="match-info col-lg-9">
                     <h1>Id du candidat</h1>
                     <h2>{{ match.id_user }}</h2>
                     <h1>Id de l'offre</h1>
                     <h2>{{ match.id_offre }}</h2>
                 </div>
-                <div class="validate col-lg-1" (click)="acceptMatch(match)">
-                    <mat-icon style="color: green">check_circle_outline</mat-icon>
-                </div>
-                <div (click)="deleteMatch(match.id)" class="cancel col-lg-1">
-                    <mat-icon style="color: red">highlight_off</mat-icon>
+                <div class="row buttons col-lg-3">
+                    <button class="validate" (click)="acceptMatch(match)">
+                        Accepter
+                    </button>
+                    <button class="cancel" (click)="deleteMatch(match.id)">
+                        Refuser
+                    </button>
                 </div>
             </div>
         </div>
     </div>
-    
+
     <div *ngIf="user && user.role == 0">
         <div *ngFor="let match of matchs">
             <div class="row match col-lg-12">
-                <div class="match-info col-lg-10">
+                <div class="match-info col-lg-12">
                     <h1>Nom de l'entreprise</h1>
                     <h2>Epita</h2>
                     <h1>Id de l'offre</h1>

@@ -4,23 +4,21 @@
     </h1>
     <p class="subtitle">Publiée par {{entreprise?.name}}</p>
 
-    <div *ngIf="user && user.role != 1">
-            <div class="row offre_detail col-lg-12">
-                <div class="offre-info col-lg-10">
-                    <h1>Description</h1>
-                    <h2>{{offre.description}}</h2>
-                    <div *ngIf="competences">
-                        <h1>Compétences</h1>
-                        <div *ngFor="let competence of competences" class="competence">
-                            <p>{{ competence.title }}</p>
-                        </div>
-                    </div>
-                    <h1>Id de l'offre</h1>
-                    <h2>{{offre.id}}</h2>
-                </div>
-                <div class="validate col-lg-2" (click)="addMatch()">
-                    <mat-icon style="color: green">check_circle_outline</mat-icon>
+    <div class="offre_detail col-lg-12">
+        <div class="offre-info col-lg-12">
+            <h1>Description</h1>
+            <h2>{{offre.description}}</h2>
+            <div *ngIf="competences">
+                <h1>Compétences</h1>
+                <div *ngFor="let competence of competences" class="competence">
+                    <p>{{ competence.title }}</p>
                 </div>
             </div>
+            <h1>Id de l'offre</h1>
+            <h2>{{offre.id}}</h2>
+        </div>
+        <button class="validate col-lg-2" (click)="addMatch()" *ngIf="user && user.role != 1">
+            Postuler
+        </button>
     </div>
 </div>
