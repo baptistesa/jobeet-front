@@ -15,7 +15,7 @@ export class OffreComponent implements OnInit {
   display_form = false;
   offre;
   entreprise;
-  competences;
+  competences = null;
   user;
   match = {
     id_user: "",

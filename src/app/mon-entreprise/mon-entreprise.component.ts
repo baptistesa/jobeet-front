@@ -72,7 +72,6 @@ export class MonEntrepriseComponent implements OnInit {
     }
     this.http.modifyIdEntreprise(body)
       .subscribe();
-    //refresh user !!!!
   }
   
   getEntrepriseOffres(id) {

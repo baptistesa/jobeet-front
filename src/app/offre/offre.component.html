@@ -1,29 +1,26 @@
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <div class="main_container">
     <h1 class="title">
         {{offre.title}}
     </h1>
-    <p class="subtitle">Publiée par {{entreprise.name}}</p>
+    <p class="subtitle">Publiée par {{entreprise?.name}}</p>
 
-    <mat-tab-group style="margin-top: 3%;">
-        <mat-tab label="Offre détaillée">
-            <p> </p>
-            <div class="infos col-lg-12">
-                <div class="card">
-                    <div class="card-body">
-                        <p class="card-text">{{offre.description}}</p>
-                        <div *ngIf="competences">
+    <div *ngIf="user && user.role != 1">
+            <div class="row offre_detail col-lg-12">
+                <div class="offre-info col-lg-10">
+                    <h1>Description</h1>
+                    <h2>{{offre.description}}</h2>
+                    <div *ngIf="competences">
+                        <h1>Compétences</h1>
                         <div *ngFor="let competence of competences" class="competence">
                             <p>{{ competence.title }}</p>
                         </div>
-                        </div>
                     </div>
-                    <div *ngIf="user && user.role != 1">
-                        <button class="btn btn-link" (click)="addMatch()">Postuler</button>
-                    </div>
+                    <h1>Id de l'offre</h1>
+                    <h2>{{offre.id}}</h2>
+                </div>
+                <div class="validate col-lg-2" (click)="addMatch()">
+                    <mat-icon style="color: green">check_circle_outline</mat-icon>
                 </div>
             </div>
-        </mat-tab>
-    </mat-tab-group>
+    </div>
 </div>
