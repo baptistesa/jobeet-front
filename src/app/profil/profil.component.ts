@@ -136,6 +136,21 @@ export class ProfilComponent implements OnInit {
       .subscribe(data => {
         this.getCV();
       })
-  } 
+  }
 
+  // Delete formation
+  deleteFormation(id) {
+    this.http.deleteFormation(id)
+      .subscribe(data => {
+        this.getCV();
+      })
+  }
+
+  // Delete experience
+  deleteExperience(id) {
+    this.http.deleteExperience(id)
+      .subscribe(data => {
+        this.getCV();
+      })
+  }
 }

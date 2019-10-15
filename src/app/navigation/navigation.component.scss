@@ -6,6 +6,10 @@
   right: 0;
 }
 
+.mat-sidenav-fixed {
+  box-shadow: 0 4px 16px 0 rgba(50,56,63,0.08);
+}
+
 .mat-sidenav-content {
   height: 100vh !important;
 }

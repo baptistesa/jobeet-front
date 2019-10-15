@@ -63,12 +63,14 @@
                         <h1 class="section_title">Mes compétences</h1>
 
                         <div *ngIf="cv && cv.competences">
-                            <div *ngFor="let competence of cv.competences" class="competence" (click)="deleteCompetence(competence.id)">
+                            <div *ngFor="let competence of cv.competences" class="competence"
+                                (click)="deleteCompetence(competence.id)">
                                 <p>{{ competence.title }}</p>
                             </div>
                             <div class="competence">
-                                    <input (keydown)="onKeydown($event)" matInput name="position" [(ngModel)]="competence" placeholder="Ajouter une compétence">
-                                
+                                <input (keydown)="onKeydown($event)" matInput name="position" [(ngModel)]="competence"
+                                    placeholder="Ajouter une compétence">
+
                             </div>
                         </div>
 
@@ -85,6 +87,8 @@
                                     ajoutée</i></p>
                             <div *ngIf="cv">
                                 <div *ngFor="let experience of cv.experiences; let i = index;">
+                                    <img src="assets/imgs/ic-close.png" style="float: right"
+                                        (click)="deleteExperience(experience.id)">
                                     <h1>{{ experience.position }}</h1>
                                     <h2 style="margin-bottom: 0">{{ experience.company }}</h2>
                                     <span
@@ -125,7 +129,7 @@
 
                                     <mat-form-field style="margin-left: 5%;">
                                         <input name="end_date_experience" matInput [matDatepicker]="end_date_experience"
-                                            placeholder="Date de fin" required [(ngModel)]="formation.end_date">
+                                            placeholder="Date de fin" required [(ngModel)]="experience.end_date">
                                         <mat-datepicker-toggle matSuffix [for]="end_date_experience">
                                         </mat-datepicker-toggle>
                                         <mat-datepicker #end_date_experience></mat-datepicker>
@@ -159,6 +163,8 @@
                             <div *ngIf="cv.formations && cv.formations.length != 0">
 
                                 <div *ngFor="let formation of cv.formations; let i = index;">
+                                    <img src="assets/imgs/ic-close.png" style="float: right"
+                                        (click)="deleteFormation(formation.id)">
                                     <h1>{{ formation.title }}</h1>
                                     <h2 style="margin-bottom: 0;">{{ formation.school }}</h2>
                                     <span

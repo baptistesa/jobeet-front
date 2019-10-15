@@ -69,4 +69,24 @@ export class ProfilService {
     };
     return this.http.delete(this.base_url + "competences/delete/" + id, httpOptions);
   }
+
+  // Delete formation
+  deleteFormation(id) {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': localStorage.getItem("token")
+      })
+    };
+    return this.http.delete(this.base_url + "formations/delete/" + id, httpOptions);
+  }
+
+  // Delete experience
+  deleteExperience(id) {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': localStorage.getItem("token")
+      })
+    };
+    return this.http.delete(this.base_url + "experience/delete/" + id, httpOptions);
+  }
 }
