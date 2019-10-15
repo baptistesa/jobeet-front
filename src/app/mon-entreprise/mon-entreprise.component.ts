@@ -64,6 +64,8 @@ export class MonEntrepriseComponent implements OnInit {
       }, err => {
         console.log("error == ", err)
       });
+    this.getUser();
+    this.router.navigate(["/entreprises"]);
   }
 
   modifyIdEntreprise(entreprise) {
@@ -72,7 +74,7 @@ export class MonEntrepriseComponent implements OnInit {
     }
     this.http.modifyIdEntreprise(body)
       .subscribe();
-    //refresh user !!!!
+    this.getUser();
   }
   
   getEntrepriseOffres(id) {
@@ -89,5 +91,13 @@ export class MonEntrepriseComponent implements OnInit {
 
   getBackground(url) {
     return this._sanitizer.bypassSecurityTrustStyle(`url(${url})`);
+  }
+
+  getUser() {
+    this.http.getUser(this.user.id)
+      .subscribe(data => {
+        this.user = JSON.parse(JSON.stringify(data)).data[0];
+        localStorage.setItem("user", JSON.stringify(this.user));
+      })
   }
 }

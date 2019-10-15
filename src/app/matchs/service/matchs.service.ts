@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -7,8 +7,54 @@ import { HttpClient } from '@angular/common/http';
 export class MatchsService {
 
   base_url = "http://localhost:3000/matchs/"
+  base_url2 = "http://localhost:3000/users/"
 
   constructor(private http: HttpClient) { 
     
+  }
+
+  deleteMatch(id) {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': localStorage.getItem("token")
+      })
+    };
+    return this.http.delete(this.base_url + "deleteMatch/" + id, httpOptions);
+  }
+
+  getUserMatch() {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': localStorage.getItem("token")
+      })
+    }
+    return this.http.get(this.base_url + "getUserMatch/", httpOptions);
+  }
+
+  getRecruteurMatch() {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': localStorage.getItem("token")
+      })
+    }
+    return this.http.get(this.base_url + "getRecruteurMatch/", httpOptions);
+  }
+
+  acceptMatch(body) {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': localStorage.getItem("token")
+      })
+    }
+    return this.http.put(this.base_url + "acceptMatch/", body, httpOptions)
+  }
+
+  getUser(id){
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': localStorage.getItem("token")
+      })
+    }
+    return this.http.get(this.base_url2 + "getUser/" + id, httpOptions);
   }
 }

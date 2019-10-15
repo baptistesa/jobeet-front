@@ -15,12 +15,21 @@ export class OffreComponent implements OnInit {
   display_form = false;
   offre;
   entreprise;
-  competences;
+  competences = null;
+  user;
+  match = {
+    id_user: "",
+    id_recruteur: "",
+    id_offre: "",
+    is_valid: false
+  }
 
   constructor(private nav: NavbarService, private _sanitizer: DomSanitizer, private http: OffreService) {
     this.offre = JSON.parse(localStorage.getItem("offre"));
     this.getCompetences(this.offre.id)
-    console.log("c'est mooiii : ", this.offre)
+    this.user = JSON.parse(localStorage.getItem("user"));
+    this.getUser();
+    console.log(" roooooooole :" + this.user.role);
     if (this.offre.id_entreprise != null)
       this.getEntreprise(this.offre.id_entreprise);
     else
@@ -44,6 +53,31 @@ export class OffreComponent implements OnInit {
         this.competences = JSON.parse(JSON.stringify(data)).data;
         console.log(this.competences)
       })
+  }
+
+  getUser() {
+    this.http.getUser(this.user.id)
+      .subscribe(data => {
+        this.user = JSON.parse(JSON.stringify(data)).data[0];
+        localStorage.setItem("user", JSON.stringify(this.user));
+      })
+  }
+
+  addMatch() {
+    this.display_form = true;
+
+    this.match.id_user = this.user.id;
+    this.match.id_recruteur = this.offre.id_author;
+    this.match.id_offre = this.offre.id;
+    this.match.is_valid = false;
+    this.http.addMatch(this.match)
+    .subscribe(data => {
+      alert("Vous avez postulé avec succès");
+    }, err => {
+      console.log("error == ", err)
+    });
+    console.log(this.match);
+
   }
 
 }
