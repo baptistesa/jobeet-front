@@ -19,7 +19,7 @@ export class MatchsService {
         'Authorization': localStorage.getItem("token")
       })
     };
-    return this.http.post(this.base_url + "deleteMatch", id, httpOptions);
+    return this.http.delete(this.base_url + "deleteMatch/" + id, httpOptions);
   }
 
   getUserMatch() {
@@ -40,13 +40,13 @@ export class MatchsService {
     return this.http.get(this.base_url + "getRecruteurMatch/", httpOptions);
   }
 
-  acceptMatch(id) {
+  acceptMatch(body) {
     const httpOptions = {
       headers: new HttpHeaders({
         'Authorization': localStorage.getItem("token")
       })
     }
-    return this.http.put(this.base_url + "acceptMatch/", id, httpOptions)
+    return this.http.put(this.base_url + "acceptMatch/", body, httpOptions)
   }
 
   getUser(id){

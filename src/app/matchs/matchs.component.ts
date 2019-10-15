@@ -30,9 +30,20 @@ export class MatchsComponent implements OnInit {
     this.nav.show();
   }
 
-  acceptMatch(id) {
-    this.http.acceptMatch(id)
+  acceptMatch(match) {
+    let body = {
+      id : match.id
+    }
+    this.http.acceptMatch(body)
       .subscribe();
+  }
+
+  deleteMatch(id) {
+    this.http.deleteMatch(id)
+      .subscribe( data => {
+        alert("Match supprimé");
+        this.getRecruteurMatch();
+    });
   }
 
   getUserMatch() {
@@ -46,6 +57,14 @@ export class MatchsComponent implements OnInit {
     this.http.getRecruteurMatch()
       .subscribe(data => {
         this.matchs = JSON.parse(JSON.stringify(data)).data;
+      })
+  }
+
+  getCandidat(id)
+  {
+    this.http.getUser(id)
+      .subscribe(data => {
+        this.candidat = JSON.parse(JSON.stringify(data)).data[0];
       })
   }
 
