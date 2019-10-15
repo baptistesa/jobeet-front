@@ -7,40 +7,48 @@
 
         <mat-tab-group style="margin-top: 3%;">
             <mat-tab label="Description">
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div>
-                            <div class="row">
-                                <div class="picture3 col-lg-4"
-                                    [style.background-image]="getBackground('https://www.margo-group.com/wp-content/uploads/2019/09/EPITA.png')">
-                                </div>
-                                <div class="informations col-lg-7" style="margin-left: 3%; height: 21rem;">
-                                    <h1 class="section_title">Informations de l'entreprise</h1>
-                                    <p class="title_entry">Nom</p>
-                                    <p class="subtitle_entry">{{entreprise.name}}</p>
-                                    <p class="title_entry">Description</p>
-                                    <p class="subtitle_entry">{{entreprise.description}}</p>
-                                </div>
-                            </div>
+                <div class="row  entreprise col-lg-12">
+                    <div class="picture3 col-lg-3"
+                        [style.background-image]="getBackground('https://www.margo-group.com/wp-content/uploads/2019/09/EPITA.png')">
+                    </div>
+                    <div class="informations col-lg-8">
+                        <h1>Informations de l'entreprise</h1>
+                        <h2>Nom</h2>
+                        <p>{{entreprise.name}}</p>
+                        <h2>Description</h2>
+                        <p *ngIf="!display_desc && entreprise.description == null">
+                            Ajoutez une description pour présenter {{entreprise.name}}
+                        </p>
+                        <p *ngIf="!display_desc">{{entreprise.description}}</p>
+                        <mat-form-field style="width: 20rem" *ngIf="display_desc">
+                            <textarea matInput [(ngModel)]="description"></textarea>
+                            <mat-placeholder class="placeholder">Modifier la description</mat-placeholder>
+                        </mat-form-field>
+                        <div style="text-align: center">
+                            <button mat-button class="connect_button" (click)="displayFormDescription()">
+                                Modifier ma
+                                description</button>
                         </div>
                     </div>
                 </div>
+
             </mat-tab>
 
             <mat-tab label="Nos offres">
-            <div *ngFor="let offre of offres">
-            <div class="offre1 col-lg-12">
-                    <div class="offres" >
+                <div *ngFor="let offre of offres">
+                    <div class="offre1 col-lg-12">
+                        <div class="offres">
                             <div class="offre-body">
                                 <h1 class="offre-title">{{offre.title}}</h1>
                                 <div class="description">
                                     <p class="offre-text">{{offre.description}}</p>
                                 </div>
-                                <button (click)="sendtoOffre(offre)" class="btn btn-link">Visualiser mon offre en détail</button>
+                                <button (click)="sendtoOffre(offre)" class="btn btn-link">Visualiser mon offre en
+                                    détail</button>
                             </div>
                         </div>
                     </div>
-            </div>
+                </div>
             </mat-tab>
 
         </mat-tab-group>
@@ -52,12 +60,13 @@
             Me relier à une entreprise
         </h1>
         <p class="subtitle">Ajouter une entreprise à mon profil</p>
- 
+
         <mat-tab-group style="margin-top: 3%;">
-            
+
             <mat-tab label="Rechercher mon entreprise">
                 <div>
-                    <div class="company" *ngFor="let entreprise of entreprises" (click)="modifyIdEntreprise(entreprise)">
+                    <div class="company" *ngFor="let entreprise of entreprises"
+                        (click)="modifyIdEntreprise(entreprise)">
                         <div class="picture2"
                             [style.background-image]="getBackground('https://upload.wikimedia.org/wikipedia/fr/d/d8/Epita.png')">
                         </div>
@@ -65,7 +74,7 @@
                     </div>
                 </div>
             </mat-tab>
-            
+
             <mat-tab label="Ajouter mon entreprise">
 
                 <div class="inputs">
@@ -83,12 +92,13 @@
                 </div>
 
                 <div style="text-align: center;">
-                    <button mat-button class="connect_button" (click)="addEntreprise()">+ Ajouter une Entreprise</button>
+                    <button mat-button class="connect_button" (click)="addEntreprise()">+ Ajouter une
+                        Entreprise</button>
                 </div>
-            
+
             </mat-tab>
- 
+
         </mat-tab-group>
- 
+
     </div>
 </div>

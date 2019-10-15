@@ -36,6 +36,7 @@ export class MatchsComponent implements OnInit {
     }
     this.http.acceptMatch(body)
       .subscribe();
+    this.getRecruteurMatch();
   }
 
   deleteMatch(id) {
