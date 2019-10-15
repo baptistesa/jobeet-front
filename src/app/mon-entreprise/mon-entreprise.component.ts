@@ -64,6 +64,8 @@ export class MonEntrepriseComponent implements OnInit {
       }, err => {
         console.log("error == ", err)
       });
+    this.getUser();
+    this.router.navigate(["/entreprises"]);
   }
 
   modifyIdEntreprise(entreprise) {
@@ -72,6 +74,7 @@ export class MonEntrepriseComponent implements OnInit {
     }
     this.http.modifyIdEntreprise(body)
       .subscribe();
+    this.getUser();
   }
   
   getEntrepriseOffres(id) {
