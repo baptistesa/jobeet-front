@@ -6,54 +6,56 @@
 
     <mat-tab-group style="margin-top: 3%;">
         <mat-tab label="Offres existantes">
-            <p> </p>   
+            <p> </p>
             <div *ngFor="let offre of mesoffres">
-            <div class="offre_detail col-lg-12" *ngIf="offre.id_author == user.id">
-                    <div class="offres" >
-                            <div class="offre-body">
-                                <h1 class="offre-title">{{offre.title}}</h1>
-                                <div class="description">
-                                    <p class="offre-text">{{offre.description}}</p>
-                                </div>
-                                <button (click)="sendtoProfil(offre)" class="btn btn-link">Visualiser mon offre</button>
+                <div class="offre_detail col-lg-12" *ngIf="offre.id_author == user.id">
+                    <div class="offres">
+                        <div class="offre-body">
+                            <h1 class="offre-title">{{offre.title}}</h1>
+                            <div class="description">
+                                <p class="offre-text">{{offre.description}}</p>
                             </div>
+                            <button (click)="sendtoProfil(offre)" class="btn btn-link">Visualiser mon offre</button>
                         </div>
                     </div>
+                </div>
             </div>
-            
+
         </mat-tab>
         <mat-tab label="Créer une offre">
             <div class="col-lg-12" style="text-align: center;">
-                    <h1 class="section_title">Ajouter une offre</h1>
-                    <div class="form">
-                            <mat-form-field style="width: 20rem">
-                                    <input matInput name="title" [(ngModel)]="offre.title">
-                                    <mat-placeholder class="placeholder">Titre de l'offre</mat-placeholder>
-                                </mat-form-field>
-                                <br>
-                                <mat-form-field style="width: 20rem">
-                                    <input matInput name="description" [(ngModel)]="offre.description">
-                                    <mat-placeholder class="placeholder">Description de l'offre</mat-placeholder>
-                                </mat-form-field>
-                                <br>
-                                <div>
+                <h1 class="section_title">Ajouter une offre</h1>
+                <div class="form">
+                    <mat-form-field style="width: 20rem">
+                        <input matInput name="title" [(ngModel)]="offre.title">
+                        <mat-placeholder class="placeholder">Titre de l'offre</mat-placeholder>
+                    </mat-form-field>
+                    <br>
+                    <mat-form-field style="width: 20rem">
+                        <input matInput name="description" [(ngModel)]="offre.description">
+                        <mat-placeholder class="placeholder">Description de l'offre</mat-placeholder>
+                    </mat-form-field>
+                    <br>
+                    <div>
 
-                                <div>
-                                    <div *ngFor="let competence of competences" class="competence" (click)="deleteCompetence(competence.id)">
-                                        <p>{{competence}}</p>
-                                    </div>
-                                    <div class="competence">
-                                            <input (keydown)="onKeydown($event)" matInput name="position" [(ngModel)]="competence" placeholder="+ Ajouter une compétence">
-                                        
-                                    </div>
-                                </div>
-        
+                        <div>
+                            <div *ngFor="let competence of competences" class="competence"
+                                (click)="deleteCompetence(competence.id)">
+                                <p>{{competence}}</p>
                             </div>
-                    </div>
+                            <div class="competence">
+                                <input (keydown)="onKeydown($event)" matInput name="position" [(ngModel)]="competence"
+                                    placeholder="+ Ajouter une compétence">
 
-                    <button mat-button class="connect_button" (click)="addOffre()">+ Ajouter une Offre</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <button mat-button class="connect_button" (click)="addOffre()">+ Ajouter une Offre</button>
             </div>
-                                
+
         </mat-tab>
     </mat-tab-group>
 </div>

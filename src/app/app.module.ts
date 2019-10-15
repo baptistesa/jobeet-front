@@ -29,6 +29,7 @@ import { SearchComponent } from './search/search.component';
 import { MatchsComponent } from './matchs/matchs.component';
 import { UserComponent } from './user/user.component';
 import { ChatRoomComponent } from './chat-room/chat-room.component';
+import { VIEWPORT_RULER_PROVIDER } from '@angular/cdk/scrolling'
 
 
 

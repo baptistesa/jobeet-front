@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import {
     MatButtonModule, MatNativeDateModule, MatIconModule, MatSidenavModule, MatListModule, MatToolbarModule, MatMenuModule, MatCardModule, MatGridListModule, MatDividerModule, MatChipsModule, MatTableModule, MatPaginatorModule, MatStepperModule, MatDialogModule, MatDatepickerModule, MatSnackBarModule, MatExpansionModule, MatProgressSpinnerModule, MatTabsModule, MatCheckboxModule
 } from '@angular/material';
+import { ScrollingModule } from '@angular/cdk/scrolling';
 
 @NgModule({
     imports: [CommonModule,
@@ -26,7 +27,8 @@ import {
         MatExpansionModule,
         MatProgressSpinnerModule,
         MatTabsModule,
-        MatCheckboxModule
+        MatCheckboxModule,
+        ScrollingModule
     ],
     exports: [
         CommonModule,
@@ -50,7 +52,8 @@ import {
         MatExpansionModule,
         MatProgressSpinnerModule,
         MatTabsModule,
-        MatCheckboxModule
+        MatCheckboxModule,
+        ScrollingModule
     ],
 })
 export class CustomMaterialModule { }

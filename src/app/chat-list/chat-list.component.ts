@@ -18,6 +18,8 @@ export class ChatListComponent implements OnInit {
     this.user = JSON.parse(localStorage.getItem("user"));
     if (this.user.role == 0)
       this.getUserMatchs();
+    else
+      this.getRecruteurMatchs();
   }
 
   ngOnInit() {
@@ -33,6 +35,15 @@ export class ChatListComponent implements OnInit {
       })
   }
 
+  // Get users match
+  getRecruteurMatchs() {
+    this.http.getRecrteurMatch()
+      .subscribe(data => {
+        this.conversations = JSON.parse(JSON.stringify(data)).data;
+        console.log(data)
+      })
+  }
+
   // Get sanitized picture
   getBackground(image) {
     let safe_pic = "http://localhost:3000/pictures/" + image
@@ -40,8 +51,8 @@ export class ChatListComponent implements OnInit {
   }
 
   // Go to chat room
-  goToRoom(id) {
-    localStorage.setItem("chatroom", id);
+  goToRoom(conv) {
+    localStorage.setItem("chatroom", JSON.stringify(conv))
     this.router.navigate(["/room"]);
   }
 
