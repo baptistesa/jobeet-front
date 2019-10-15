@@ -1,4 +1,3 @@
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <div class="main_container">
     <h1 class="title">
         Mes offres
@@ -9,12 +8,12 @@
         <mat-tab label="Offres existantes">
             <p> </p>   
             <div *ngFor="let offre of mesoffres">
-            <div class="infos col-lg-12" *ngIf="offre.id_author == user.id">
-                    <div class="card" >
-                            <div class="card-body">
-                                <h4 class="card-title">{{offre.title}}</h4>
+            <div class="offre_detail col-lg-12" *ngIf="offre.id_author == user.id">
+                    <div class="offres" >
+                            <div class="offre-body">
+                                <h1 class="offre-title">{{offre.title}}</h1>
                                 <div class="description">
-                                    <p class="card-text">{{offre.description}}</p>
+                                    <p class="offre-text">{{offre.description}}</p>
                                 </div>
                                 <button (click)="sendtoProfil(offre)" class="btn btn-link">Visualiser mon offre</button>
                             </div>
@@ -44,7 +43,7 @@
                                         <p>{{competence}}</p>
                                     </div>
                                     <div class="competence">
-                                            <input (keydown)="onKeydown($event)" matInput name="position" [(ngModel)]="competence" placeholder="Ajouter une compétence">
+                                            <input (keydown)="onKeydown($event)" matInput name="position" [(ngModel)]="competence" placeholder="+ Ajouter une compétence">
                                         
                                     </div>
                                 </div>

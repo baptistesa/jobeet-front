@@ -30,11 +30,11 @@
             <mat-tab label="Nos offres">
             <div *ngFor="let offre of offres">
             <div class="offre1 col-lg-12">
-                    <div class="card" >
-                            <div class="card-body">
-                                <h4 class="card-title">{{offre.title}}</h4>
+                    <div class="offres" >
+                            <div class="offre-body">
+                                <h1 class="offre-title">{{offre.title}}</h1>
                                 <div class="description">
-                                    <p class="card-text">{{offre.description}}</p>
+                                    <p class="offre-text">{{offre.description}}</p>
                                 </div>
                                 <button (click)="sendtoOffre(offre)" class="btn btn-link">Visualiser mon offre en détail</button>
                             </div>

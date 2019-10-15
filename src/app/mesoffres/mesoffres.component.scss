@@ -104,7 +104,28 @@
     margin-top: 0;
   }
 
-.competence {
+.offre_detail {
+  background-color: white;
+  border-radius: 8px;
+  height: auto;
+  min-height: 100%;
+  font-family: "locator-regular";
+  box-shadow: 0 4px 16px 0 rgba(50, 56, 63, 0.08);
+  margin-top: 3%;
+  padding: 2%;
+  
+  h1 {
+      font-size: 20px;
+      color: #e50051;
+  }
+  
+  p {
+      font-size: 16px;
+      color: gray;
+      padding-bottom: 2%;
+  }
+  
+  .competence {
   min-width: 60px;
   background: #e50051;
   color: white;
@@ -116,7 +137,22 @@
   margin-left: 2%;
   margin-top: 5px;
 
-  p {
-    margin: 0;
+    p {
+      margin: 0;
+    }
+  }
+
+  button {
+    background: #e50051;
+    color: white;
+    display: block;
+    width: auto;
+    font-family: 'locator-regular';
+    text-align: center;
+    border-radius: 20px;
+    border-color: transparent;
+    margin: auto;
+    margin-top: 1%;
+
   }
 }
