@@ -18,10 +18,10 @@ export class OffreComponent implements OnInit {
   competences;
   user;
   match = {
-    id_user : null,
-    id_recruteur : null,
-    id_offre : null,
-    is_valid : false
+    id_user: "",
+    id_recruteur: "",
+    id_offre: "",
+    is_valid: false
   }
 
   constructor(private nav: NavbarService, private _sanitizer: DomSanitizer, private http: OffreService) {
