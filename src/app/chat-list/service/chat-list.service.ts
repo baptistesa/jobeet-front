@@ -18,6 +18,16 @@ export class ChatListService {
         'Authorization': localStorage.getItem("token")
       })
     }
-    return this.http.get(this.base_url + "matchs/getUserMatch/", httpOptions);
+    return this.http.get(this.base_url + "matchs/getUserMatch", httpOptions);
+  }
+
+  // Retrieve recruteur match
+  getRecrteurMatch() {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': localStorage.getItem("token")
+      })
+    }
+    return this.http.get(this.base_url + "matchs/getRecruteurMatch", httpOptions);
   }
 }

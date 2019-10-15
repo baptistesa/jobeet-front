@@ -1,0 +1,62 @@
+.main_container {
+  padding: 2%;
+  background: #f9fcfc;
+  padding-top: 0 !important;
+}
+
+.title {
+  font-family: "locator-regular";
+  margin-bottom: 0;
+  margin-top: 5vh;
+  font-size: 20px;
+  color: #e50051;
+}
+
+.subtitle {
+  color: gray;
+  font-family: "locator-regular";
+  margin-top: 0;
+  font-size: 16px;
+}
+
+.my_footer {
+  background-color: white;
+  height: 10%;
+  position: fixed;
+  bottom: 2rem;
+  width: 85vw;
+
+  .my_message {
+    display: inline-block;
+    width: 90%;
+  }
+}
+
+.own_messages {
+  width: 100%;
+  min-height: 5rem;
+  background-color: white;
+  margin-top: 4rem;
+  border-radius: 10px;
+  padding: 10px !important;
+
+  .content_msg {
+      font-family: 'locator-regular';
+      color: gray;
+  }
+}
+
+.your_messages {
+  margin-top: 4rem;
+  width: 100%;
+  min-height: 5rem;
+  background-color: #e50051;
+  border-radius: 10px;
+  padding: 10px !important;
+
+  .content_msg {
+      font-family: 'locator-regular';
+      color: white;
+      margin-left: 20px;
+  }
+}

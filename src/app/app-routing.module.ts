@@ -32,7 +32,7 @@ const routes: Routes = [
   { path: 'matchs', component: MatchsComponent, data: { title: 'Matchs' }, canActivate: [AuthGuard] },
   { path: 'search', component: SearchComponent, data: { title: 'Search' }, canActivate: [AuthGuard] },
   { path: 'user/:id', component: UserComponent, data: { title: 'User' }, canActivate: [AuthGuard] },
-  { path: 'room/:id_offre/id_recruteur', component: ChatRoomComponent, data: { title: 'Chat' }, canActivate: [AuthGuard] }
+  { path: 'room', component: ChatRoomComponent, data: { title: 'Chat' }, canActivate: [AuthGuard] }
 ];
 
 @NgModule({

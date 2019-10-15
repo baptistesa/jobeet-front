@@ -1,1 +1,48 @@
-<p>chat-room works!</p>
+<div class="main_container">
+    <div style="position: fixed; width: 100%;">
+        <h1 class="title">
+            {{ room.name }} {{ room.last_name }}
+        </h1>
+        <p class="subtitle">Discutez avec votre recruteur</p>
+
+        <cdk-virtual-scroll-viewport itemSize="50" style="height: 70vh; contain: content;">
+            <div *ngFor="let message of messages">
+                <div class="row" style="width: 80vw;" *ngIf="message.id_exp == my_id">
+                    <div class="col-lg-5"></div>
+                    <div class="col-lg-7 own_messages">
+                        <p class="content_msg">{{ message.message }}</p>
+                    </div>
+
+                </div>
+
+                <div class="row" style="width: 80vw;" *ngIf="message.id_exp != my_id">
+                    <div class="col-lg-7 your_messages">
+
+                        <p class="content_msg">{{ message.message }}</p>
+                    </div>
+                    <div class="col-lg-5"></div>
+
+
+                </div>
+            </div>
+
+
+        </cdk-virtual-scroll-viewport>
+
+        <div class="my_footer" *ngIf="role == 0">
+            <span style="font-family:'locator-regular'; font-style: italic;" *ngIf="is_writting">{{ room.name }} {{ room.last_name }} est en train d'écrire</span><br>
+            <input mat-input class="my_message" [(ngModel)]="message" (ngModelChange)="updateStatus($event)" (keydown)="onKeydown($event, 0)">
+            <mat-icon style="color: #e50051; display: inline-block; margin-left: 1.5rem; margin-top: 5rem"
+                (click)="sendMessageUser()">send
+            </mat-icon>
+        </div>
+
+        <div class="my_footer" *ngIf="role == 1">
+            <span style="font-family:'locator-regular'; font-style: italic;" *ngIf="is_writting">{{ room.name }} {{ room.last_name }} est en train d'écrire</span><br>
+            <input mat-input class="my_message" [(ngModel)]="message" (ngModelChange)="updateStatus($event)" (keydown)="onKeydown($event, 1)">
+            <mat-icon style="color: #e50051; display: inline-block; margin-left: 1.5rem; margin-top: 5rem"
+                (click)="sendRecruteurUser()">send
+            </mat-icon>
+        </div>
+    </div>
+</div>
