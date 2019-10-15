@@ -22,6 +22,8 @@ export class MonEntrepriseComponent implements OnInit {
     name: "",
     description: ""
   }
+  display_desc = false;
+  description: any;
 
   constructor(public router: Router, private nav: NavbarService, private _sanitizer: DomSanitizer, private http: MonEntrepriseService) {
     this.user = JSON.parse(localStorage.getItem("user"));
@@ -64,7 +66,6 @@ export class MonEntrepriseComponent implements OnInit {
       }, err => {
         console.log("error == ", err)
       });
-    this.getUser();
     this.router.navigate(["/entreprises"]);
   }
 
@@ -75,6 +76,7 @@ export class MonEntrepriseComponent implements OnInit {
     this.http.modifyIdEntreprise(body)
       .subscribe();
     this.getUser();
+    
   }
   
   getEntrepriseOffres(id) {
@@ -99,5 +101,17 @@ export class MonEntrepriseComponent implements OnInit {
         this.user = JSON.parse(JSON.stringify(data)).data[0];
         localStorage.setItem("user", JSON.stringify(this.user));
       })
+  }
+
+  displayFormDescription() {
+    if (!this.display_desc) {
+      this.display_desc = true;
+      return;
+    }
+    this.display_desc = false;
+    this.http.updateDescription(this.description)
+      .subscribe(data => {
+        this.getEntreprise(this.user.id_entreprise);
+      });
   }
 }

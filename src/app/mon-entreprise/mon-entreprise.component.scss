@@ -28,27 +28,32 @@
   background-color: #e50051;
 }
 
-.picture3 {
-  margin-left: 3%;
-  width: 20rem;
-  border-radius: 8px;
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-  box-shadow: 0 4px 16px 0 rgba(50, 56, 63, 0.08);
-  margin-top: 3%;
-  background-color: white;
-}
 
-.informations {
-  background-color: white;
-  box-shadow: 0 4px 16px 0 rgba(50, 56, 63, 0.08);
-  width: 100%;
-  border-radius: 8px;
-  margin-top: 3%;
-  padding: 3%;
+.entreprise {
+  height: auto;
+  .picture3 {
+    margin-left: 2%;
+    border-radius: 8px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    box-shadow: 0 4px 16px 0 rgba(50, 56, 63, 0.08);
+    margin-top: 3%;
+    margin-right: 2%;
+    background-color: white;
+  }
+
+  .informations {
+    background-color: white;
+    box-shadow: 0 4px 16px 0 rgba(50, 56, 63, 0.08);
+    width: 100%;
+    border-radius: 8px;
+    margin-top: 3%;
+    padding: 3%;
+  }
 
   h1 {
+    color: #e50051;
     font-family: "locator-regular";
     font-size: 20px;
   }
@@ -61,25 +66,11 @@
 
   p {
     font-family: "locator-regular";
+    color: black;
   }
 }
 
-.section_title {
-  margin-top: 5%;
-  font-family: "locator-regular";
-  color: gray;
-  font-size: 20px;
-}
 
-.title_entry {
-  color: gray;
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-.subtitle_entry {
-  margin-top: 0;
-}
 
 .mat-focused .mat-form-field-label {
   color: #e50051;
@@ -120,8 +111,12 @@
   font-family: "locator-regular";
   background: #e50051;
   color: white;
-  margin-top: 5% !important;
-  width: 50%;
+  text-align: center;
+  display: block;
+  margin-top: 3% !important;
+  width: auto;
+  min-width: 10rem; 
+  margin: auto;
   border-top-left-radius: 20px !important;
   border-bottom-right-radius: 20px !important;
 }

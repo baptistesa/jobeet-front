@@ -69,4 +69,16 @@ export class MonEntrepriseService {
     }
     return this.http.get(this.base_url3 + "getUser/" + id, httpOptions);
   }
+  
+  updateDescription(description){
+    let body = {
+      description: description
+    }
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': localStorage.getItem("token")
+      })
+    }
+    return this.http.put(this.base_url + "updateDescription/" , body, httpOptions);
+  }
 }

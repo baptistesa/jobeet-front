@@ -6,7 +6,7 @@
 
     <div *ngIf="user && user.role == 1">
         <div *ngFor="let match of matchs">
-            <div class="row match col-lg-12">
+            <div *ngIf="match.is_valid != true" class="row match col-lg-12">
                 <div class="match-info col-lg-9">
                     <h1>Id du candidat</h1>
                     <h2>{{ match.id_user }}</h2>
@@ -26,13 +26,39 @@
     </div>
 
     <div *ngIf="user && user.role == 0">
+        <h1 class="title">
+            En cours de traitement
+        </h1>
+        <hr>
         <div *ngFor="let match of matchs">
-            <div class="row match col-lg-12">
-                <div class="match-info col-lg-12">
-                    <h1>Nom de l'entreprise</h1>
-                    <h2>Epita</h2>
+            <div *ngIf="match.is_valid != true" class="row match col-lg-12">
+                <div class="match-info col-lg-9">
+                    <h1>Id recruteur</h1>
+                    <h2>{{ match.id_recruteur }}</h2>
                     <h1>Id de l'offre</h1>
-                    <h2>Offre : 08101970</h2>
+                    <h2>{{ match.id_offre }}</h2>
+                </div>
+                <div class="match-info col-lg-2">
+                    <h1>Statut</h1>
+                    <h2>En attente</h2>
+                </div>
+            </div>
+        </div>
+        <h1 class="title">
+            Validés
+        </h1>
+        <hr>
+        <div *ngFor="let match of matchs">
+            <div *ngIf="match.is_valid == true" class="row match col-lg-12">
+                <div class="match-info col-lg-9">
+                    <h1>Id recruteur</h1>
+                    <h2>{{ match.id_recruteur }}</h2>
+                    <h1>Id de l'offre</h1>
+                    <h2>{{ match.id_offre }}</h2>
+                </div>
+                <div class="match-info col-lg-2">
+                    <h1>Statut</h1>
+                    <h2>Validé</h2>
                 </div>
             </div>
         </div>
