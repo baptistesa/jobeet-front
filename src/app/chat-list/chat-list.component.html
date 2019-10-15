@@ -5,4 +5,16 @@
     </h1>
     <p class="subtitle">Discutez avec les recruteurs</p>
 
+    <div class="conversations">
+        <p style="color: gray; font-family: 'locator-regular'; text-align: center;" *ngIf="!conversations || conversations.length == 0 || conversations == []">Vous devez matcher avec un recruteur pour pouvoir discuter avec lui</p>
+        <div *ngFor="let conversation of conversations">
+        <div class="row conversation" *ngIf="conversation.is_valid">
+            <div class="picture_conv" [style.background-image]="getBackground(conversation.picture_path)">
+            </div>
+            <div style="display: inline-block; width: 80%; border-bottom: thin solid rgba(128, 128, 128, 0.438);">
+                <p class="name_conv ">{{ conversation.name }} {{ conversation.last_name }}</p>
+            </div>
+        </div>
+        </div>
+    </div>
 </div>

@@ -1,0 +1,78 @@
+.main_container {
+  padding: 2%;
+  background: #f9fcfc;
+  padding-top: 0 !important;
+}
+
+.title {
+  font-family: "locator-regular";
+  margin-bottom: 0;
+  margin-top: 5vh;
+  font-size: 20px;
+  color: #e50051;
+}
+
+.subtitle {
+  color: gray;
+  font-family: "locator-regular";
+  margin-top: 0;
+  font-size: 16px;
+}
+
+.infos {
+  background-color: white;
+  box-shadow: 0 4px 16px 0 rgba(50, 56, 63, 0.08);
+  width: 100%;
+  border-radius: 8px;
+  margin-top: 3%;
+  padding: 3%;
+
+  h1 {
+    font-family: "locator-regular";
+    font-size: 20px;
+  }
+
+  h2 {
+    font-family: "locator-regular";
+    color: gray;
+    font-size: 15px;
+  }
+
+  p {
+    font-family: "locator-regular";
+  }
+}
+
+.section_title {
+  margin-top: 5%;
+  font-family: "locator-regular";
+  color: gray;
+  font-size: 20px;
+}
+
+.title_entry {
+  color: gray;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.subtitle_entry {
+  margin-top: 0;
+}
+
+.competence {
+  min-width: 60px;
+  background: #e50051;
+  color: white;
+  display: inline-block;
+  text-align: center;
+  font-family: "locator-regular";
+  border-radius: 20px;
+  padding: 5px;
+  margin-left: 2%;
+  margin-top: 5px;
+
+  p {
+    margin: 0;
+  }
+}

@@ -1,0 +1,109 @@
+<div class="main_container">
+    <h1 class="title">
+        Profil
+    </h1>
+    <p class="subtitle">Découvrez les compétences de untel</p>
+
+
+    <div class="row">
+
+        <div class="col-lg-6">
+            <div *ngIf="user">
+                <h1 class="section_title">Mes informations</h1>
+                <div class="row">
+                    <div class="infos col-lg-4"
+                        style="margin-left: 3%;height: 21rem; background-size: cover; background-position: center"
+                        [style.background-image]="getBackground(user.picture_path)">
+
+                    </div>
+                    <div class="infos col-lg-7" style="margin-left: 3%; height: 21rem;">
+                        <p class="title_entry">Prénom</p>
+                        <p class="subtitle_entry">{{ user.name }}</p>
+                        <hr>
+                        <p class="title_entry">Nom</p>
+                        <p class="subtitle_entry">{{ user.last_name }}</p>
+                        <hr>
+                        <p class="title_entry">Adresse email</p>
+                        <p class="subtitle_entry">{{ user.mail }}</p>
+                        <hr>
+                        <p class="title_entry">Numéro de téléphone</p>
+                        <p class="subtitle_entry">{{ user.phone }}</p>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <h1 class="section_title">A propos de moi</h1>
+                <div class="infos col-lg-12">
+                    <p *ngIf="cv && cv != null && !display_form_description" style="margin-top: 3%">
+                        {{ cv.cv.description }}</p>
+                    <p *ngIf="(!cv || cv == null || !cv.cv.description || cv.cv.description == '') && !display_form_description"
+                        style="margin-top: 3%"><i>Aucune description !</i></p>
+                </div>
+
+            </div>
+
+            <div>
+
+                <h1 class="section_title">Mes compétences</h1>
+
+                <div *ngIf="cv && cv.competences">
+                    <div *ngFor="let competence of cv.competences" class="competence">
+                        <p>{{ competence.title }}</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="col-lg-6">
+
+            <div>
+
+                <h1 class="section_title">Mes expériences professionnelles</h1>
+                <div class="infos col-lg-12">
+                    <p *ngIf="!cv || !cv.experiences || cv.experiences.length == 0"><i>Aucune expérience
+                            ajoutée</i></p>
+                    <div *ngIf="cv">
+                        <div *ngFor="let experience of cv.experiences; let i = index;">
+                            <h1>{{ experience.position }}</h1>
+                            <h2 style="margin-bottom: 0">{{ experience.company }}</h2>
+                            <span
+                                style="color: gray; margin-top: 0; font-size: 10px;">{{ experience.start_date | date: 'dd/MM/yyyy' }}
+                                - {{ experience.end_date | date: 'dd/MM/yyyy'}}</span>
+                            <p style="margin-top: 3%">{{ experience.description }}</p>
+                            <hr *ngIf="i != cv.experiences.length - 1">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div>
+
+                <h1 class="section_title">Mes formations</h1>
+                <div *ngIf="cv && cv != null" class="infos col-lg-12">
+                    <p *ngIf="!cv || !cv.formations || cv.formations.length == 0"><i>Aucune formation
+                            ajoutée</i></p>
+                    <div *ngIf="cv.formations && cv.formations.length != 0">
+
+                        <div *ngFor="let formation of cv.formations; let i = index;">
+                            <h1>{{ formation.title }}</h1>
+                            <h2 style="margin-bottom: 0;">{{ formation.school }}</h2>
+                            <span
+                                style="color: gray; margin-top: 0; font-size: 10px;">{{ formation.start_date | date: 'dd/MM/yyyy' }}
+                                - {{ formation.end_date | date: 'dd/MM/yyyy'}}</span>
+                            <p style="margin-top: 3%">{{ formation.description }}</p>
+                            <hr *ngIf="i != cv.formations.length - 1">
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+
+</div>

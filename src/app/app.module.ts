@@ -27,6 +27,8 @@ import { OffreComponent } from './offre/offre.component';
 import { MesoffresComponent } from './mesoffres/mesoffres.component';
 import { SearchComponent } from './search/search.component';
 import { MatchsComponent } from './matchs/matchs.component';
+import { UserComponent } from './user/user.component';
+import { ChatRoomComponent } from './chat-room/chat-room.component';
 
 
 
@@ -46,7 +48,9 @@ import { MatchsComponent } from './matchs/matchs.component';
     OffreComponent,
     MesoffresComponent,
     SearchComponent,
-    MatchsComponent
+    MatchsComponent,
+    UserComponent,
+    ChatRoomComponent
   ],
   imports: [
     BrowserModule,

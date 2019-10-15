@@ -6,7 +6,7 @@
 
 
     <div class="searchbar">
-        <mat-form-field style="width: 100%">
+        <mat-form-field style="width: 100%;">
             <input matInput [(ngModel)]="description">
             <mat-placeholder class="placeholder">Effectuer une recherche</mat-placeholder>
         </mat-form-field>
@@ -15,15 +15,16 @@
 
     <div class="users">
         <h1>Utilisateurs</h1>
-        <div *ngFor="let user of users" class="one_user">
+        <div *ngFor="let user of users" class="one_user" (click)="goToUser(user.id)">
+            <div class="picture_profil" [style.background-image]="getBackground(user.picture_path)"></div>
             <p>{{ user.name }}</p>
             <p>{{ user.last_name }}</p>
         </div>
     </div>
 
-    
-    <div class="offres">
 
+    <div class="offres">
+        <h1>Offres</h1>
     </div>
 
 

@@ -13,6 +13,8 @@ import { ChatListComponent } from './chat-list/chat-list.component';
 import { MatchsComponent } from './matchs/matchs.component';
 import { MonEntrepriseComponent } from './mon-entreprise/mon-entreprise.component';
 import { SearchComponent } from './search/search.component';
+import { UserComponent } from './user/user.component';
+import { ChatRoomComponent } from './chat-room/chat-room.component';
 
 
 
@@ -28,7 +30,9 @@ const routes: Routes = [
   { path: 'mesoffres', component: MesoffresComponent, data: { title: 'MesOffres' }, canActivate: [AuthGuard] },
   { path: 'chat', component: ChatListComponent, data: { title: 'Chat' }, canActivate: [AuthGuard] },
   { path: 'matchs', component: MatchsComponent, data: { title: 'Matchs' }, canActivate: [AuthGuard] },
-  { path: 'search', component: SearchComponent, data: { title: 'Search' }, canActivate: [AuthGuard] }
+  { path: 'search', component: SearchComponent, data: { title: 'Search' }, canActivate: [AuthGuard] },
+  { path: 'user/:id', component: UserComponent, data: { title: 'User' }, canActivate: [AuthGuard] },
+  { path: 'room/:id_offre/id_recruteur', component: ChatRoomComponent, data: { title: 'Chat' }, canActivate: [AuthGuard] }
 ];
 
 @NgModule({
