@@ -92,9 +92,6 @@ export class ChatRoomComponent implements OnInit, AfterViewInit {
     }
     else {
       this.http.sendWriting(this.room.id, JSON.parse(localStorage.getItem("user")).id);
-      setTimeout(() => {
-        this.http.stopWriting(this.room.id, JSON.parse(localStorage.getItem("user")).id);
-      }, 3000)
     }
   }
 
