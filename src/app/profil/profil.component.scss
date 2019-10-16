@@ -98,6 +98,19 @@ mat-focused .mat-form-field-label {
   margin-top: 0;
 }
 
+.mat-raised-button {
+  font-family: "locator-regular";
+  background: #e50051;
+  color: white;
+  text-align: center;
+  display: block;
+  margin-top: 5% !important;
+  width: 35%;
+  min-width: 10rem; 
+  margin-left: 5%;
+  border-top-left-radius: 20px !important;
+  border-bottom-right-radius: 20px !important;
+}
 .competence {
   min-width: 60px;
   background: #e50051;
