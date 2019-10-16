@@ -25,10 +25,10 @@ export class EntrepriseComponent implements OnInit {
   ngOnInit() {
     this.nav.show();
   }
-
-  // Get sanitized picture
-  getBackground(url) {
-    return this._sanitizer.bypassSecurityTrustStyle(`url(${url})`);
+  
+  getBackground(image) {
+    let safe_pic = "http://localhost:3000/pictures/" + image
+    return this._sanitizer.bypassSecurityTrustStyle(`url(${safe_pic})`);
   }
   
   getEntreprise(id) {

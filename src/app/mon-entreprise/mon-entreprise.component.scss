@@ -32,16 +32,35 @@
 .entreprise {
   height: auto;
   .picture3 {
-    margin-left: 2%;
-    border-radius: 8px;
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    box-shadow: 0 4px 16px 0 rgba(50, 56, 63, 0.08);
+    height: auto;
+    background: #f9fcfc;
+    width: 100%;
     margin-top: 3%;
-    margin-right: 2%;
-    background-color: white;
+    border-radius: 8px;
+    .pictures {
+      width: 100%;
+      box-shadow: 0 4px 16px 0 rgba(50, 56, 63, 0.08);
+      background-position: center;
+      border-radius: 8px;
+      background-size: cover;
+      background-repeat: no-repeat;
+      height: 80%;
+    }
+
+  .mat-raised-button {
+    font-family: "locator-regular";
+    background: #e50051;
+    color: white;
+    text-align: center;
+    display: block;
+    margin-top: 5% !important;
+    width: 80%;
+    min-width: 10rem; 
+    margin: auto;
+    border-top-left-radius: 20px !important;
+    border-bottom-right-radius: 20px !important;
   }
+}
 
   .informations {
     background-color: white;
@@ -49,6 +68,7 @@
     width: 100%;
     border-radius: 8px;
     margin-top: 3%;
+    margin-left: 1%;
     padding: 3%;
   }
 

@@ -39,10 +39,10 @@ export class AllEntreprisesComponent implements OnInit {
       })
       
   }
- 
-  // Get image for entreprise's background box
-  getBackground(url) {
-    return this._sanitizer.bypassSecurityTrustStyle(`url(${url})`);
+
+  getBackground(image) {
+    let safe_pic = "http://localhost:3000/pictures/" + image
+    return this._sanitizer.bypassSecurityTrustStyle(`url(${safe_pic})`);
   }
 
   sendtoProfil(entreprise) {

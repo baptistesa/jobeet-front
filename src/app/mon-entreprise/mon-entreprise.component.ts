@@ -24,9 +24,11 @@ export class MonEntrepriseComponent implements OnInit {
   }
   display_desc = false;
   description: any;
+  fileToUpload: File = null;
 
   constructor(public router: Router, private nav: NavbarService, private _sanitizer: DomSanitizer, private http: MonEntrepriseService) {
     this.user = JSON.parse(localStorage.getItem("user"));
+    this.getUser();
     if (this.user.id_entreprise != null)
     {
       this.getEntreprise(this.user.id_entreprise);
@@ -91,15 +93,16 @@ export class MonEntrepriseComponent implements OnInit {
     this.router.navigate(["/offre"]);
   }
 
-  getBackground(url) {
-    return this._sanitizer.bypassSecurityTrustStyle(`url(${url})`);
+  getBackground(image) {
+    let safe_pic = "http://localhost:3000/pictures/" + image
+    return this._sanitizer.bypassSecurityTrustStyle(`url(${safe_pic})`);
   }
 
   getUser() {
     this.http.getUser(this.user.id)
       .subscribe(data => {
         this.user = JSON.parse(JSON.stringify(data)).data[0];
-        localStorage.setItem("user", JSON.stringify(this.user));
+        this.nav.setUser(this.user)
       })
   }
 
@@ -114,4 +117,16 @@ export class MonEntrepriseComponent implements OnInit {
         this.getEntreprise(this.user.id_entreprise);
       });
   }
+
+  handleFile(files: FileList) {
+    this.fileToUpload = files.item(0);
+    this.uploadFile();
+  }
+
+  uploadFile() {
+    this.http.uploadPic(this.fileToUpload)
+      .subscribe(data => {
+        this.getEntreprise(this.user.id_entreprise)
+      });
+  } 
 }

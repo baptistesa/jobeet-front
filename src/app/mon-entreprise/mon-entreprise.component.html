@@ -8,8 +8,11 @@
         <mat-tab-group style="margin-top: 3%;">
             <mat-tab label="Description">
                 <div class="row  entreprise col-lg-12">
-                    <div class="picture3 col-lg-3"
-                        [style.background-image]="getBackground('https://www.margo-group.com/wp-content/uploads/2019/09/EPITA.png')">
+                    <div class="picture3 col-lg-3" >
+                        <div class="pictures" [style.background-image]="getBackground(entreprise.picture_path)" ></div>
+                        <div ngfSelect multiple="1" class="mat-raised-button" style="margin-top: 3%;">
+                            <input type="file" id="file" (change)="handleFile($event.target.files)">
+                        </div>
                     </div>
                     <div class="informations col-lg-8">
                         <h1>Informations de l'entreprise</h1>
@@ -68,7 +71,7 @@
                     <div class="company" *ngFor="let entreprise of entreprises"
                         (click)="modifyIdEntreprise(entreprise)">
                         <div class="picture2"
-                            [style.background-image]="getBackground('https://upload.wikimedia.org/wikipedia/fr/d/d8/Epita.png')">
+                            [style.background-image]="getBackground(entreprise.picture_path)">
                         </div>
                         <p>{{ entreprise.name }}</p>
                     </div>

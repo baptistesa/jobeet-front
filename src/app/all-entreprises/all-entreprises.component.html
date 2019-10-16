@@ -7,7 +7,7 @@
     <div>
     <div class="company" *ngFor="let entreprise of entreprises" (click)="sendtoProfil(entreprise)">
         <div class="picture2"
-            [style.background-image]="getBackground('https://upload.wikimedia.org/wikipedia/fr/d/d8/Epita.png')">
+            [style.background-image]="getBackground(entreprise.picture_path)">
         </div>
         <p>{{ entreprise.name }}</p>
     </div>

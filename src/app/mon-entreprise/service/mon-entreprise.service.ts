@@ -81,4 +81,16 @@ export class MonEntrepriseService {
     }
     return this.http.put(this.base_url + "updateDescription/" , body, httpOptions);
   }
+
+  uploadPic(fileToUpload: File) {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': localStorage.getItem("token")
+      })
+    };
+    const formData: FormData = new FormData();
+    formData.append('picture', fileToUpload, fileToUpload.name);
+    return this.http.post(this.base_url + "/upload", formData, httpOptions);
+  }
+
 }
