@@ -22,6 +22,11 @@ export class UserService {
 
   // Return CV of user
   getCV(id) {
-    return this.http.get(this.base_url + "cv/get/" + id);
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': localStorage.getItem("token")
+      })
+    };
+    return this.http.get(this.base_url + "cv/get/" + id, httpOptions);
   }
 }

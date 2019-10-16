@@ -11,7 +11,12 @@ export class MesoffresService {
   constructor(private http: HttpClient) { }
 
   getMesoffres() {
-    return this.http.get(this.base_url + "getOffres/");
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': localStorage.getItem("token")
+      })
+    };
+    return this.http.get(this.base_url + "getOffres/", httpOptions);
   }
 
   addOffre(body) {

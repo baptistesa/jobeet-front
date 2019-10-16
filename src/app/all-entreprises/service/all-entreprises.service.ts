@@ -18,6 +18,6 @@ export class AllEntreprisesService {
         'Authorization': localStorage.getItem("token")
       })
     };
-    return this.http.get(this.base_url + "getEntreprises/");
+    return this.http.get(this.base_url + "getEntreprises/", httpOptions);
   }
 }

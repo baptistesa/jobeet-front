@@ -22,7 +22,7 @@ export class MonEntrepriseService {
         'Authorization': localStorage.getItem("token")
       })
     };
-    return this.http.get(this.base_url + "getEntreprise/" + id);
+    return this.http.get(this.base_url + "getEntreprise/" + id, httpOptions);
   }
 
   addEntreprise(body) {
@@ -40,7 +40,7 @@ export class MonEntrepriseService {
         'Authorization': localStorage.getItem("token")
       })
     };
-    return this.http.get(this.base_url + "getEntreprises/");
+    return this.http.get(this.base_url + "getEntreprises/", httpOptions);
   }
 
   modifyIdEntreprise(body) {

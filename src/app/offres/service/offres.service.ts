@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +11,11 @@ export class OffresService {
   constructor(private http: HttpClient) { }
 
   getOffres() {
-    return this.http.get(this.base_url + "getOffres/")
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': localStorage.getItem("token")
+      })
+    };
+    return this.http.get(this.base_url + "getOffres/", httpOptions)
   }
 }

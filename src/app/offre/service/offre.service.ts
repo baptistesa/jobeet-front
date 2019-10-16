@@ -20,7 +20,7 @@ export class OffreService {
         'Authorization': localStorage.getItem("token")
       })
     };
-    return this.http.get(this.base_url + "getEntreprise/" + id);
+    return this.http.get(this.base_url + "getEntreprise/" + id, httpOptions);
   }
 
   getCompetencesByOffre(id) {
