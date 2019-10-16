@@ -3,7 +3,8 @@
         <h1 class="title">
             {{ room.name }} {{ room.last_name }}
         </h1>
-        <p class="subtitle">Discutez avec votre recruteur</p>
+        <p class="subtitle" *ngIf="role == 0">Discutez avec le recruteur</p>
+        <p class="subtitle" *ngIf="role != 0">Discutez avec le candidat</p>
 
         <cdk-virtual-scroll-viewport itemSize="50" style="height: 70vh; contain: content;">
             <div *ngFor="let message of messages">
